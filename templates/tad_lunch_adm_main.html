@@ -1,0 +1,372 @@
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/css/xoops_adm.css" />
+
+<{$jquery}>
+
+<div class="btn-group">
+<a href="main.php?op=add" class="btn btn-info"><{$smarty.const._TAD_ADD}></a>
+<a href="main.php?op=updata" class="btn btn-info"><{$smarty.const._MA_LUNCH_UPDATA}></a>
+<a href="main.php?op=updata_temp" class="btn btn-info"><{$smarty.const._MA_LUNCH_UPDATA_TEMP}></a>
+</div>
+
+<{if $now_op=="updata"}>
+  <form action ="main.php" enctype="multipart/form-data" method="post">
+  <label><{$smarty.const._MA_LUNCH_UPDATA_BROWS}></label>
+  <input type="file" name="userdata">
+  <input type="submit" value="<{$smarty.const._MA_LUNCH_UPDATA_SUBVAL}>">
+  <input type="hidden" name="act" value="upfile">
+  </form>
+  
+  <label><{$smarty.const._MA_LUNCH_UPDATA_README1L}></label>
+  <ol>
+    <li><{$smarty.const._MA_LUNCH_UPDATA_CSV}><a href="../sql/lunch_demo_<{$language}>.csv"><{$smarty.const._MA_LUNCH_UPDATA_EXAMPLE}></a></li>
+    <li><{$smarty.const._MA_LUNCH_UPDATA_README2L}></li>
+    <li><{$smarty.const._MA_LUNCH_UPDATA_README3L}></li>
+    <li><{$smarty.const._MA_LUNCH_UPDATA_README4L}></li>
+    <li><{$smarty.const._MA_LUNCH_UPDATA_README5L}></li>
+  </ol>
+<{else}>
+  <div class="well">
+  <{$smarty.const._MA_LUNCH_README_BODY}>
+  <{$smarty.const._MA_DISH_UNIT_README}>
+  </div>
+
+  <a href="main.php?op=add_one" class="btn btn-primary"><{$smarty.const._MA_LUNCH_ADD_ONE}></a>
+
+  <script type="text/javascript" src="<{$xoops_url}>/modules/tadtools/jqueryCookie/jquery.cookie.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    var $tabs = $("#food-jquery-tabs").tabs({ cookie: { expires: 30 } , collapsible: true});
+  });
+  </script>
+
+  <div id='food-jquery-tabs'>
+    <ul>
+      <li><a href='#tabs-1'><{$smarty.const._MA_LUNCH_ADD_STAPLE}></a></li>
+      <li><a href='#tabs-2'><{$smarty.const._MA_LUNCH_ADD_DISH}></a></li>
+      <li><a href='#tabs-3'><{$smarty.const._MA_LUNCH_ADD_SOUP}></a></li>
+      <li><a href='#tabs-4'><{$smarty.const._MA_LUNCH_ADD_FRUIT}></a></li>
+      <li><a href='#tabs-5'><{$smarty.const._MA_LUNCH_ADD_REM}></a></li>
+    </ul>
+
+
+    <div id='tabs-1'>
+      <h1><{$smarty.const._MA_LUNCH_ADD_STAPLE}></h1>
+      <table class="table table-striped table-bordered table-condensed table-hover" style="font-size:12px;">
+      <tr>
+        <td><{$smarty.const._MA_LUNCH_EXE}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ID}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_DISH}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_1}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_2}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_3}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_4}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_5}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_6}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_7}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_8}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_9}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_10}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+      </tr>
+
+      <{foreach from=$all1 item=food}>
+        <tr>
+          <td>
+            <a href="main.php?op=modify_one&op_id=<{$food.id}>" class="btn btn-mini btn-warning"><{$smarty.const._TAD_EDIT}></a>
+            <a href="main.php?act=del_one&op_id=<{$food.id}>" class="btn btn-mini btn-danger"><{$smarty.const._TAD_DEL}></a>
+          </td>
+          <td><{$food.kind}></td>
+          <td><{$food.dish}></td>
+          <td><{$food.item_name_1}></td>
+          <td><{$food.item_number_1}><{$food.item_unit_1}></td>
+          <td><{$food.item_name_2}></td>
+          <td><{$food.item_number_2}><{$food.item_unit_2}></td>
+          <td><{$food.item_name_3}></td>
+          <td><{$food.item_number_3}><{$food.item_unit_3}></td>
+          <td><{$food.item_name_4}></td>
+          <td><{$food.item_number_4}><{$food.item_unit_4}></td>
+          <td><{$food.item_name_5}></td>
+          <td><{$food.item_number_5}><{$food.item_unit_5}></td>
+          <td><{$food.item_name_6}></td>
+          <td><{$food.item_number_6}><{$food.item_unit_6}></td>
+          <td><{$food.item_name_7}></td>
+          <td><{$food.item_number_7}><{$food.item_unit_7}></td>
+          <td><{$food.item_name_8}></td>
+          <td><{$food.item_number_8}><{$food.item_unit_8}></td>
+          <td><{$food.item_name_9}></td>
+          <td><{$food.item_number_9}><{$food.item_unit_9}></td>
+          <td><{$food.item_name_10}></td>
+          <td><{$food.item_number_10}><{$food.item_unit_10}></td>
+        </tr>
+      <{/foreach}>
+      </table>
+    </div>
+
+
+    <div id='tabs-2'>
+      <h1><{$smarty.const._MA_LUNCH_ADD_DISH}></h1>
+      <table class="table table-striped table-bordered table-condensed table-hover" style="font-size:12px;">
+      <tr>
+        <td><{$smarty.const._MA_LUNCH_EXE}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ID}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_DISH}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_1}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_2}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_3}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_4}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_5}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_6}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_7}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_8}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_9}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_10}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+      </tr>
+
+      <{foreach from=$all2 item=food}>
+        <tr>
+          <td>
+            <a href="main.php?op=modify_one&op_id=<{$food.id}>" class="btn btn-mini btn-warning"><{$smarty.const._TAD_EDIT}></a>
+            <a href="main.php?act=del_one&op_id=<{$food.id}>" class="btn btn-mini btn-danger"><{$smarty.const._TAD_DEL}></a>
+          </td>
+          <td><{$food.kind}></td>
+          <td><{$food.dish}></td>
+          <td><{$food.item_name_1}></td>
+          <td><{$food.item_number_1}><{$food.item_unit_1}></td>
+          <td><{$food.item_name_2}></td>
+          <td><{$food.item_number_2}><{$food.item_unit_2}></td>
+          <td><{$food.item_name_3}></td>
+          <td><{$food.item_number_3}><{$food.item_unit_3}></td>
+          <td><{$food.item_name_4}></td>
+          <td><{$food.item_number_4}><{$food.item_unit_4}></td>
+          <td><{$food.item_name_5}></td>
+          <td><{$food.item_number_5}><{$food.item_unit_5}></td>
+          <td><{$food.item_name_6}></td>
+          <td><{$food.item_number_6}><{$food.item_unit_6}></td>
+          <td><{$food.item_name_7}></td>
+          <td><{$food.item_number_7}><{$food.item_unit_7}></td>
+          <td><{$food.item_name_8}></td>
+          <td><{$food.item_number_8}><{$food.item_unit_8}></td>
+          <td><{$food.item_name_9}></td>
+          <td><{$food.item_number_9}><{$food.item_unit_9}></td>
+          <td><{$food.item_name_10}></td>
+          <td><{$food.item_number_10}><{$food.item_unit_10}></td>
+        </tr>
+      <{/foreach}>
+      </table>
+    </div>
+
+
+
+    <div id='tabs-3'>
+      <h1><{$smarty.const._MA_LUNCH_ADD_SOUP}></h1>
+      <table class="table table-striped table-bordered table-condensed table-hover" style="font-size:12px;">
+      <tr>
+        <td><{$smarty.const._MA_LUNCH_EXE}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ID}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_DISH}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_1}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_2}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_3}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_4}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_5}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_6}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_7}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_8}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_9}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_10}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+      </tr>
+
+      <{foreach from=$all3 item=food}>
+        <tr>
+          <td>
+            <a href="main.php?op=modify_one&op_id=<{$food.id}>" class="btn btn-mini btn-warning"><{$smarty.const._TAD_EDIT}></a>
+            <a href="main.php?act=del_one&op_id=<{$food.id}>" class="btn btn-mini btn-danger"><{$smarty.const._TAD_DEL}></a>
+          </td>
+          <td><{$food.kind}></td>
+          <td><{$food.dish}></td>
+          <td><{$food.item_name_1}></td>
+          <td><{$food.item_number_1}><{$food.item_unit_1}></td>
+          <td><{$food.item_name_2}></td>
+          <td><{$food.item_number_2}><{$food.item_unit_2}></td>
+          <td><{$food.item_name_3}></td>
+          <td><{$food.item_number_3}><{$food.item_unit_3}></td>
+          <td><{$food.item_name_4}></td>
+          <td><{$food.item_number_4}><{$food.item_unit_4}></td>
+          <td><{$food.item_name_5}></td>
+          <td><{$food.item_number_5}><{$food.item_unit_5}></td>
+          <td><{$food.item_name_6}></td>
+          <td><{$food.item_number_6}><{$food.item_unit_6}></td>
+          <td><{$food.item_name_7}></td>
+          <td><{$food.item_number_7}><{$food.item_unit_7}></td>
+          <td><{$food.item_name_8}></td>
+          <td><{$food.item_number_8}><{$food.item_unit_8}></td>
+          <td><{$food.item_name_9}></td>
+          <td><{$food.item_number_9}><{$food.item_unit_9}></td>
+          <td><{$food.item_name_10}></td>
+          <td><{$food.item_number_10}><{$food.item_unit_10}></td>
+        </tr>
+      <{/foreach}>
+      </table>
+    </div>
+
+
+
+    <div id='tabs-4'>
+      <h1><{$smarty.const._MA_LUNCH_ADD_FRUIT}></h1>
+      <table class="table table-striped table-bordered table-condensed table-hover" style="font-size:12px;">
+      <tr>
+        <td><{$smarty.const._MA_LUNCH_EXE}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ID}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_DISH}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_1}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_2}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_3}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_4}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_5}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_6}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_7}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_8}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_9}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_10}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+      </tr>
+
+      <{foreach from=$all4 item=food}>
+        <tr>
+          <td>
+            <a href="main.php?op=modify_one&op_id=<{$food.id}>" class="btn btn-mini btn-warning"><{$smarty.const._TAD_EDIT}></a>
+            <a href="main.php?act=del_one&op_id=<{$food.id}>" class="btn btn-mini btn-danger"><{$smarty.const._TAD_DEL}></a>
+          </td>
+          <td><{$food.kind}></td>
+          <td><{$food.dish}></td>
+          <td><{$food.item_name_1}></td>
+          <td><{$food.item_number_1}><{$food.item_unit_1}></td>
+          <td><{$food.item_name_2}></td>
+          <td><{$food.item_number_2}><{$food.item_unit_2}></td>
+          <td><{$food.item_name_3}></td>
+          <td><{$food.item_number_3}><{$food.item_unit_3}></td>
+          <td><{$food.item_name_4}></td>
+          <td><{$food.item_number_4}><{$food.item_unit_4}></td>
+          <td><{$food.item_name_5}></td>
+          <td><{$food.item_number_5}><{$food.item_unit_5}></td>
+          <td><{$food.item_name_6}></td>
+          <td><{$food.item_number_6}><{$food.item_unit_6}></td>
+          <td><{$food.item_name_7}></td>
+          <td><{$food.item_number_7}><{$food.item_unit_7}></td>
+          <td><{$food.item_name_8}></td>
+          <td><{$food.item_number_8}><{$food.item_unit_8}></td>
+          <td><{$food.item_name_9}></td>
+          <td><{$food.item_number_9}><{$food.item_unit_9}></td>
+          <td><{$food.item_name_10}></td>
+          <td><{$food.item_number_10}><{$food.item_unit_10}></td>
+        </tr>
+      <{/foreach}>
+      </table>
+    </div>
+
+
+
+    <div id='tabs-5'>
+      <h1><{$smarty.const._MA_LUNCH_ADD_REM}></h1>
+      <table class="table table-striped table-bordered table-condensed table-hover" style="font-size:12px;">
+      <tr>
+        <td><{$smarty.const._MA_LUNCH_EXE}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ID}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_DISH}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_1}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_2}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_3}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_4}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_5}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_6}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_7}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_8}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_9}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_ITEM_10}></td>
+        <td><{$smarty.const._MA_LUNCH_ADD_NUMBER}></td>
+      </tr>
+
+      <{foreach from=$all5 item=food}>
+        <tr>
+          <td>
+            <a href="main.php?op=modify_one&op_id=<{$food.id}>" class="btn btn-mini btn-warning"><{$smarty.const._TAD_EDIT}></a>
+            <a href="main.php?act=del_one&op_id=<{$food.id}>" class="btn btn-mini btn-danger"><{$smarty.const._TAD_DEL}></a>
+          </td>
+          <td><{$food.kind}></td>
+          <td><{$food.dish}></td>
+          <td><{$food.item_name_1}></td>
+          <td><{$food.item_number_1}><{$food.item_unit_1}></td>
+          <td><{$food.item_name_2}></td>
+          <td><{$food.item_number_2}><{$food.item_unit_2}></td>
+          <td><{$food.item_name_3}></td>
+          <td><{$food.item_number_3}><{$food.item_unit_3}></td>
+          <td><{$food.item_name_4}></td>
+          <td><{$food.item_number_4}><{$food.item_unit_4}></td>
+          <td><{$food.item_name_5}></td>
+          <td><{$food.item_number_5}><{$food.item_unit_5}></td>
+          <td><{$food.item_name_6}></td>
+          <td><{$food.item_number_6}><{$food.item_unit_6}></td>
+          <td><{$food.item_name_7}></td>
+          <td><{$food.item_number_7}><{$food.item_unit_7}></td>
+          <td><{$food.item_name_8}></td>
+          <td><{$food.item_number_8}><{$food.item_unit_8}></td>
+          <td><{$food.item_name_9}></td>
+          <td><{$food.item_number_9}><{$food.item_unit_9}></td>
+          <td><{$food.item_name_10}></td>
+          <td><{$food.item_number_10}><{$food.item_unit_10}></td>
+        </tr>
+      <{/foreach}>
+      </table>
+    </div>
+
+  </div>
+<{/if}>  

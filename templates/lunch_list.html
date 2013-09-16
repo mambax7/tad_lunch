@@ -1,0 +1,98 @@
+<table>
+<tr>
+  <td width="50%" align="center">
+    
+    <a href="index.php?d_date=<{$week_day}>&add_days=-14"><img src="images/2leftarrow.png" title="<{$smarty.const._MD_LUNCH_L2W}>" alt="<{$smarty.const._MD_LUNCH_L2W}>" width="20" height="15" border="0"></a>
+    
+    <a href="index.php?d_date=<{$week_day}>&add_days=-7"><img src="images/1leftarrow.png" title="<{$smarty.const._MD_LUNCH_L1W}>" alt="<{$smarty.const._MD_LUNCH_L1W}>" width="20" height="15" border="0"></a>
+    
+    <strong><font size="4"><{$smarty.const._MD_LUNCH_TITLEW}></font></strong>
+    <a href="index.php?d_date=<{$week_day}>&add_days=7"><img src="images/1rightarrow.png" title="<{$smarty.const._MD_LUNCH_N1W}>" alt="<{$smarty.const._MD_LUNCH_N1W}>" width="20" height="15" border="0"></a>
+    
+    <a href="index.php?d_date=<{$week_day}>&add_days=14"><img src="images/2rightarrow.png" title="<{$smarty.const._MD_LUNCH_N2W}>" alt="<{$smarty.const._MD_LUNCH_N2W}>" width="20" height="15" border="0"></a>
+    
+  </td>
+  
+  <td width="50%" align="center">
+    <{$select_date_form}>
+  </td>
+</tr>
+</table>
+
+
+<table border="5" cellpadding="1" cellspacing="1" bgcolor="#99FF00">
+  <tr>
+    <td colspan="8" align="center"><{$get_gc_year}><{$smarty.const._MD_LUNCH_SY}> <{$smarty.const._MD_LUNCH_S1}> <{$get_gc_seme}><{$smarty.const._MD_LUNCH_S2}><{$weeks_show}></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><{$smarty.const._MD_LUNCH_DAY}></td>
+    <{foreach from=$allmd item=md}>
+      <td align="center" bgcolor="#FFFFFF">
+      <a href="index.php?op=add_one&s_date=<{$md.ddate}>" title=<{$smarty._MD_LUNCH_ADD}>>
+      <{$md.m}><{$smarty.const._MD_LUNCH_M}><{$md.d}><{$smarty.const._MD_LUNCH_D}>
+      </a>
+      </td>
+    <{/foreach}>
+  </tr>
+  
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><{$smarty.const._MD_LUNCH_WEEKN}></td>
+    <{foreach from=$allw item=w}>
+      <td align="center" bgcolor="#FFFFFF"><{$w.week}></td>
+    <{/foreach}>
+  </tr>
+  
+  <{if $staple_YESNO}>
+    <tr>
+      <td align="center" bgcolor="#FFFFFF"><{$smarty.const._MD_LUNCH_DISH_MAIN}></td>
+      <{foreach from=$staple item=f}>
+        <td align="center" bgcolor="#FFFFFF"><{$f.food}></td>
+      <{/foreach}>
+    </tr>    
+  <{/if}>
+  
+  <{if $dish_YESNO}>
+    <tr>
+    <td align="center" bgcolor="#FFFFFF"><{$smarty.const._MD_LUNCH_DISH_DISH}></td>
+      <{foreach from=$dish item=d}>
+        <td align="center" bgcolor="#FFFFFF">
+        <{if $d.dish1}><div><{$d.dish1}></div><{/if}>
+        <{if $d.dish2}><div><{$d.dish2}></div><{/if}>
+        <{if $d.dish3}><div><{$d.dish3}></div><{/if}>
+        <{if $d.dish4}><div><{$d.dish4}></div><{/if}>
+        <{if $d.dish5}><div><{$d.dish5}></div><{/if}>
+        </td>
+      <{/foreach}>
+    </tr>    
+  <{/if}>
+
+  <{if $soup_YESNO}>
+    <tr>
+      <td align="center" bgcolor="#FFFFFF"><{$smarty.const._MD_LUNCH_DISH_SOUP}></td>
+      <{foreach from=$soup item=soup}>
+        <td align="center" bgcolor="#FFFFFF"><{$soup.soup}></td>
+      <{/foreach}>
+    </tr>    
+  <{/if}>
+
+
+  <{if $fruit_YESNO}>
+    <tr>
+      <td align="center" bgcolor="#FFFFFF"><{$smarty.const._MD_LUNCH_DISH_FRUIT}></td>
+      <{foreach from=$fruit item=fruit}>
+        <td align="center" bgcolor="#FFFFFF"><{$fruit.fruit}></td>
+      <{/foreach}>
+    </tr>    
+  <{/if}>
+
+
+  <{if $rem_YESNO}>
+    <tr>
+      <td align="center" bgcolor="#FFFFFF"><{$smarty.const._MD_LUNCH_DISH_REM}></td>
+      <{foreach from=$rem item=rem}>
+        <td align="center" bgcolor="#FFFFFF"><{$rem.rem}></td>
+      <{/foreach}>
+    </tr>    
+  <{/if}>  
+  
+</table>

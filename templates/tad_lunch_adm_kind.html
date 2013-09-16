@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/css/xoops_adm.css" />
+
+
+<h1><{$smarty.const._MA_LUNCH_KIND_SN}></h1>
+
+
+<div class="row-fluid">
+  <div class="span6">
+
+    <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th><{$smarty.const._MA_LUNCH_KIND_SN}></th>
+      <th><{$smarty.const._MA_LUNCH_KIND_NAME}></th>
+      <th><{$smarty.const._MA_LUNCH_EXE}></th>
+    </tr>
+
+    <{foreach from=$all item=k}>
+      <tr>
+        <td><{$k.sn}></td>
+        <td><{$k.name}></td>
+        <td>
+          <a href="kind.php?op_id=<{$k.id}>" class="btn btn-warning"><{$smarty.const._TAD_EDIT}></a>
+          <a href="kind.php?op=del_one&op_id=<{$k.id}>" class="btn btn-danger"><{$smarty.const._TAD_DEL}></a>
+        </td>
+      </tr>
+    <{/foreach }>
+
+    </table>
+  </div>
+  
+  
+  <div class="span6">
+    <div class="well">
+    
+      <form method="post" action="kind.php">
+        <div class="controls controls-row">
+          <label class="span3 text-right"><{$smarty.const._MA_LUNCH_KIND_SN}></label>
+          <input name="sn" value="<{$kind.sn}>" type="text" class="span8" placeholder="<{$smarty.const._MA_LUNCH_KIND_SN}>">
+        </div>
+
+        <div class="controls controls-row">
+          <label class="span3 text-right"><{$smarty.const._MA_LUNCH_KIND_NAME}></label>
+          <input name="name" value="<{$kind.name}>" type="text" class="span8" placeholder="<{$smarty.const._MA_LUNCH_KIND_SN}>">
+        </div>
+        
+        <div class="text-right">
+          <{if $op_id}>
+            <input name="id" type="hidden" value="<{$kind.id}>">
+          <{else}>
+            <input name="op" type="hidden" value="add">
+          <{/if}>
+          
+          <button type="reset" class="btn btn-success"><{$smarty.const._MA_LUNCH_RESET}></button>
+          <button type="submit" class="btn btn-primary"><{$smarty.const._TAD_SAVE}></button>
+        </div>
+        
+      </form>
+  
+      <{$smarty.const._MA_LUNCH_README_BODY}>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,199 @@
+<{$bootstrap}>
+<{$jquery}>
+<{$toolbar}>
+
+<{if !$read_power}>
+  <div class="hero-unit">
+  <h1><{$smarty.const._MD_LUNCH_NO_POWER}></h1>
+  </div>
+<{else}>
+  <div class="row-fluid">
+    <div class="span6 text-center">
+      <a href="index.php?d_date=<{$week_day}>&add_days=-14"><img src="images/2leftarrow.png" title="<{$smarty.const._MD_LUNCH_L2W}>" alt="<{$smarty.const._MD_LUNCH_L2W}>"></a>
+      
+      <a href="index.php?d_date=<{$week_day}>&add_days=-7"><img src="images/1leftarrow.png" title="<{$smarty.const._MD_LUNCH_L1W}>" alt="<{$smarty.const._MD_LUNCH_L1W}>"></a>
+      
+      <strong><font size="4"><{$smarty.const._MD_LUNCH_TITLEW}></font></strong>
+      <a href="index.php?d_date=<{$week_day}>&add_days=7"><img src="images/1rightarrow.png" title="<{$smarty.const._MD_LUNCH_N1W}>" alt="<{$smarty.const._MD_LUNCH_N1W}>"></a>
+      
+      <a href="index.php?d_date=<{$week_day}>&add_days=14"><img src="images/2rightarrow.png" title="<{$smarty.const._MD_LUNCH_N2W}>" alt="<{$smarty.const._MD_LUNCH_N2W}>"></a>
+    </div>
+    
+    <div class="span6 text-center">
+      <{$select_date_form}>
+    </div>
+  </div>
+
+
+
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <td colspan="8" style="text-align:center;"><{$get_gc_year}><{$smarty.const._MD_LUNCH_SY}> <{$smarty.const._MD_LUNCH_S1}> <{$get_gc_seme}><{$smarty.const._MD_LUNCH_S2}><{$weeks_show}></td>
+    </tr>
+    <tr>
+      <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DAY}></td>
+      <{foreach from=$allmd item=md}>
+        <td style="text-align:center;">
+          <a href="index.php?op=add_one&s_date=<{$md.ddate}>" title="<{$smarty.const._MD_LUNCH_ADD}>">
+          <{$md.m}><{$smarty.const._MD_LUNCH_M}><{$md.d}><{$smarty.const._MD_LUNCH_D}>
+          </a>
+        </td>
+      <{/foreach}>
+    </tr>
+    
+    <tr>
+      <td style="text-align:center;"><{$smarty.const._MD_LUNCH_WEEKN}></td>
+      <{foreach from=$allmd item=md}>
+        <td style="text-align:center;">
+          <a href="index.php?op=add_one&s_date=<{$md.ddate}>" title="<{$smarty.const._MD_LUNCH_ADD}>">
+          <{$md.week}>
+          </a>
+        </td>
+      <{/foreach}>
+    </tr>
+    
+    <{if $staple_YESNO}>
+      <tr>
+        <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_MAIN}></td>
+        <{foreach from=$staple item=f}>
+          <td style="text-align:center;"><{$f.food}></td>
+        <{/foreach}>
+      </tr>    
+    <{/if}>
+    
+    <{if $dish_YESNO}>
+      <tr>
+      <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_DISH}></td>
+        <{foreach from=$dish item=d}>
+          <td style="text-align:center;">
+          <{if $d.dish1}><div><{$d.dish1}></div><{/if}>
+          <{if $d.dish2}><div><{$d.dish2}></div><{/if}>
+          <{if $d.dish3}><div><{$d.dish3}></div><{/if}>
+          <{if $d.dish4}><div><{$d.dish4}></div><{/if}>
+          <{if $d.dish5}><div><{$d.dish5}></div><{/if}>
+          </td>
+        <{/foreach}>
+      </tr>    
+    <{/if}>
+
+    <{if $soup_YESNO}>
+      <tr>
+        <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_SOUP}></td>
+        <{foreach from=$soup item=soup}>
+          <td style="text-align:center;"><{$soup.soup}></td>
+        <{/foreach}>
+      </tr>    
+    <{/if}>
+
+
+    <{if $fruit_YESNO}>
+      <tr>
+        <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_FRUIT}></td>
+        <{foreach from=$fruit item=fruit}>
+          <td style="text-align:center;"><{$fruit.fruit}></td>
+        <{/foreach}>
+      </tr>    
+    <{/if}>
+
+
+    <{if $rem_YESNO}>
+      <tr>
+        <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_REM}></td>
+        <{foreach from=$rem item=rem}>
+          <td style="text-align:center;"><{$rem.rem}></td>
+        <{/foreach}>
+      </tr>    
+    <{/if}>  
+    
+  </table>
+  
+  <{if $now_op == "add_form"}>
+    <{if $add_form_power or $add_menu_power}>
+      <form method="post" action="index.php">
+        <table class="table table-striped table-bordered table-hover">
+          <tr> 
+            <td style="text-align:center;" colspan="2"><{$smarty.const._MD_LUNCH_DISH_TITLE}></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;" colspan="2"><{$dm}><{$smarty.const._MD_LUNCH_M}> <{$dd}><{$smarty.const._MD_LUNCH_D}></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;" colspan="2"><{$week_days1}></td>
+          </tr>
+          <tr> 
+             <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_MAIN}></td>
+            <td>
+            <{$staple_sn}>
+            <input name="staple" value="<{$food_staple}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_DISH1}></td>
+            <td>
+            <{$dish1_sn}>
+            <input name="dish1" value="<{$food_dish1}>" type="text" class="span6"></td>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_DISH2}></td>
+            <td>
+            <{$dish2_sn}>
+            <input name="dish2" value="<{$food_dish2}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_DISH3}></td>
+            <td>
+            <{$dish3_sn}>
+            <input name="dish3" value="<{$food_dish3}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_DISH4}></td>
+            <td>
+            <{$dish4_sn}>
+            <input name="dish4" value="<{$food_dish4}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_DISH5}></td>
+            <td>
+            <{$dish5_sn}>
+            <input name="dish5" value="<{$food_dish5}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_SOUP}></td>
+            <td>
+            <{$soup_sn}>
+            <input name="soup" value="<{$food_soup}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_FRUIT}></td>
+            <td>
+            <{$fruit_sn}>
+            <input name="fruit" value="<{$food_fruit}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_REM}></td>
+            <td>
+            <{$rem_sn}>
+            <input name="rem" value="<{$food_rem}>" type="text" class="span6"></td>
+          </tr>
+          <tr> 
+            <td style="text-align:center;"><{$smarty.const._MD_LUNCH_DISH_MENBERS}></td>
+            <td><input name="numbers" value="<{$numbers}>" type="text" class="span6"></td>
+          </tr>
+        </table>
+        
+        <div style="text-align:center;">
+        <input name="op" type="hidden" value="save">
+        <input name="s_date" type="hidden" value="<{$g_day}>">
+        <input name="week" type="hidden" value="<{$week_days}>">
+        <input name="weeks" type="hidden" value="<{$weeks}>">
+        <button type="submit" name="save" class="btn btn-primary"><{$smarty.const._TAD_SAVE}></button>
+        </div>
+      </form>
+    <{/if}>  
+  <{/if}>
+    
+  <div style="text-align:right;">
+    <a href="week_ooo.php?pdf_date=<{$week_day}>" target="_blank"><img src="images/printer.png" title="<{$smarty.const._MD_OOO_PRINTER}>" alt="<{$smarty.const._MD_OOO_PRINTER}>" width="30" height="30" ></a>
+    
+    <a href="week_pdf.php?pdf_date=<{$week_day}>" target="_blank"><img src="images/printer.png"title="<{$smarty.const._MD_PDF_PRINTER}>" alt="<{$smarty.const._MD_PDF_PRINTER}>" width="30" height="30" ></a>
+
+  </div>
+<{/if}>  
