@@ -1,25 +1,25 @@
 <?php
-// Â^¨ú sfs3 ªº ¨ç¼Æ®w ¤Î¼W¥[ 
+// ï¿½^ï¿½ï¿½ sfs3 ï¿½ï¿½ ï¿½ï¿½Æ®w ï¿½Î¼Wï¿½[ 
 // $Id: sfs_case_PLlib.php,v 1.10.4.1 2004/01/10 04:48:02 hami Exp $
-// ¨ú¥N PLlib.php
+// ï¿½ï¿½ï¿½N PLlib.php
 
 /*
- * ¨ç¼Æ®w
- * §@ªÌ
+ * ï¿½ï¿½Æ®w
+ * ï¿½@ï¿½ï¿½
  * prolin  http://sy3es.tnc.edu.tw/~prolin 
  * hami    cik@mail.wpes.tcc.edu.tw
 */
 
-//ª©¥»¸¹
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //$PLlib_VERSON = 2.0;
 //$PLlib_DATE = "2001-10-1";
 
 
 
 function DtoCh($dday="", $st="-") {
-  if (!$dday) //¨Ï¥Î¹w³]¤é´Á
+  if (!$dday) //ï¿½Ï¥Î¹wï¿½]ï¿½ï¿½ï¿½
   $dday = date("Y-m-j");
-  //§â¦è¤¸¤é´Á§ï¬°¥Á°ê¤é´Á  $st¬°¤À¹j²Å¸¹
+  //ï¿½ï¿½è¤¸ï¿½ï¿½ï¿½ï¿½ï¬°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  $stï¿½ï¿½ï¿½ï¿½ï¿½jï¿½Å¸ï¿½
 	$tok = strtok($dday,$st) ;
 	$i = 0 ;
 	while ($tok) {
@@ -34,7 +34,7 @@ function DtoCh($dday="", $st="-") {
 }
 
 function ChtoD($dday, $st="-") {
-  //§â¥Á°ê¤é´Á§ï¬°¦è¤¸¤é´Á  $st¬°¤À¹j²Å¸¹
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¬°ï¿½è¤¸ï¿½ï¿½ï¿½  $stï¿½ï¿½ï¿½ï¿½ï¿½jï¿½Å¸ï¿½
 	$tok = strtok($dday,$st) ;
 	$i = 0 ;
 	while ($tok) {
@@ -49,7 +49,7 @@ function ChtoD($dday, $st="-") {
 }
 
 function Getday($dday ,$st="-") {
-  //§â¦è¤¸¤é´Á¤¤¨ú±o¤é´Á  $st¬°¤À¹j²Å¸¹
+  //ï¿½ï¿½è¤¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½  $stï¿½ï¿½ï¿½ï¿½ï¿½jï¿½Å¸ï¿½
 	$tok = strtok($dday,$st) ;
 	$i = 0 ;
 	while ($tok) {
@@ -59,12 +59,12 @@ function Getday($dday ,$st="-") {
 	}
   //$d[0] = $d[0] - 1911 ;
 
-  //Âà¬°¼Æ¦r¶Ç¦^
-	return intval($d[2]) ;	
+  //ï¿½à¬°ï¿½Æ¦rï¿½Ç¦^
+	return (int)$d[2];
 }	
 
 function GetdayAdd($dday ,$dayn,$st="-") {
-  //¤é´Á¤¤¥[´î¤é¼Æ
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 	$tok = strtok($dday,$st) ;
 	$i = 0 ;
 	while ($tok) {

@@ -178,7 +178,7 @@ function change_str($source,$is_reference=1){
 function change_temp($arr,$source,$is_reference=1) {
 	$temp_str = $source;
 	while(list($id,$val) = each($arr)){
-		$val = strval($val);
+		$val = (string)$val;
 		if ($is_reference && $val<>''){
 			$tttt='';
 			for($i=0;$i<strlen($val);$i++)

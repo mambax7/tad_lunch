@@ -168,7 +168,7 @@ function Num2CNum($dblArabic,$ChineseNumeric='') {
 	
   //(* �q�Ӧ�ư_�H�C�|��Ƭ��@�p�` *)
 	
-	for ($iSection = 0 ; $iSection<= intval((strlen($sIntArabic)-1)/4);$iSection++) {
+	for ($iSection = 0 ; $iSection <= (int)((strlen($sIntArabic) - 1) / 4); $iSection++) {
 		$sSectionArabic = substr($sIntArabic, $iSection * 4 , 4);
 		$sSection = '';	
     		
