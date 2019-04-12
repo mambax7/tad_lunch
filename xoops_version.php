@@ -1,7 +1,7 @@
 <?php
-$modversion = array();
+$modversion = [];
 
-//---¼Ò²Õ°ò¥»¸ê°T---//
+//---ï¿½Ò²Õ°ò¥»¸ï¿½T---//
 $modversion['name'] = _MI_LUNCH_NAME;
 $modversion['version'] = 1.00;
 $modversion['description'] = _MI_LUNCH_DESC;
@@ -13,7 +13,7 @@ $modversion['license_url'] = 'www.gnu.org/licenses/gpl-2.0.html/';
 $modversion['image'] = "images/logo_{$xoopsConfig['language']}.png";
 $modversion['dirname'] = basename(dirname(__FILE__));
 
-//---¼Ò²Õª¬ºA¸ê°T---//
+//---ï¿½Ò²Õªï¿½ï¿½Aï¿½ï¿½T---//
 $modversion['release_date'] = '2013/08/29';
 $modversion['module_website_url'] = 'http://tad0616.net/';
 $modversion['module_website_name'] = _MI_TAD_WEB;
@@ -23,29 +23,29 @@ $modversion['author_website_name'] = _MI_TAD_WEB;
 $modversion['min_php']=5.2;
 $modversion['min_xoops']='2.5';
 
-//---paypal¸ê°T---//
-$modversion ['paypal'] = array();
+//---paypalï¿½ï¿½T---//
+$modversion ['paypal'] = [];
 $modversion ['paypal']['business'] = 'tad0616@gmail.com';
 $modversion ['paypal']['item_name'] = 'Donation : ' . _MI_TAD_WEB;
 $modversion ['paypal']['amount'] = 0;
 $modversion ['paypal']['currency_code'] = 'USD';
 
-//---¼Ò²Õ¸ê®Æªí¬[ºc---//
+//---ï¿½Ò²Õ¸ï¿½Æªï¿½[ï¿½c---//
 $modversion['sqlfile']['mysql'] = "sql/lunch_{$xoopsConfig['language']}.sql";
 $modversion['tables'][0] = "tad_lunch_config";
 $modversion['tables'][1] = "tad_lunch_main";
 $modversion['tables'][2] = "tad_lunch_dish";
 $modversion['tables'][3] = "tad_lunch_kind";
 
-//---«á¥x¨Ï¥Î¨t²Î¿ï³æ---//
+//---ï¿½ï¿½xï¿½Ï¥Î¨tï¿½Î¿ï¿½ï¿½---//
 $modversion['system_menu'] = 1;
 
-//---«á¥xºÞ²z¤¶­±³]©w---//
+//---ï¿½ï¿½xï¿½Þ²zï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½w---//
 $modversion['hasAdmin'] = 1;
 $modversion['adminindex'] = 'admin/index.php';
 $modversion['adminmenu'] = 'admin/menu.php';
 
-//---«e¥x¥D¿ï³æ³]©w---//
+//---ï¿½eï¿½xï¿½Dï¿½ï¿½ï¿½]ï¿½w---//
 $modversion['hasMain'] = 1;
 
 $modversion['sub'][1]['name'] =_MI_LUNCH_SHOW;
@@ -54,13 +54,13 @@ $modversion['sub'][1]['url'] = "index.php";
 $modversion['sub'][2]['name'] =_MI_LUNCH_VIEW_ADD_MENU;
 $modversion['sub'][2]['url'] = "view_add_menu.php";
 
-//---¼Ò²Õ¦Û°Ê¥\¯à---//
+//---ï¿½Ò²Õ¦Û°Ê¥\ï¿½ï¿½---//
 //$modversion['onInstall'] = "include/install.php";
 //$modversion['onUpdate'] = "include/update.php";
 //$modversion['onUninstall'] = "include/onUninstall.php";
 
-//---°¾¦n³]©w---//
-$modversion['config'] = array();
+//---ï¿½ï¿½ï¿½nï¿½]ï¿½w---//
+$modversion['config'] = [];
 $i=0;
 $modversion['config'][$i]['name']    = 'title';
 $modversion['config'][$i]['title']    = '_MI_LUNCH_CONFIG_TITLE';
@@ -126,13 +126,13 @@ $modversion['config'][$i]['valuetype']    = 'int';
 $modversion['config'][$i]['default']    = '300';
 
 
-//---·j´M---//
+//---ï¿½jï¿½M---//
 //$modversion['hasSearch'] = 1;
 //$modversion['search']['file'] = "include/search.php";
-//$modversion['search']['func'] = "·j´M¨ç¼Æ¦WºÙ";
+//$modversion['search']['func'] = "ï¿½jï¿½Mï¿½ï¿½Æ¦Wï¿½ï¿½";
 
-//---°Ï¶ô³]©w---//
-$modversion['blocks'] = array();
+//---ï¿½Ï¶ï¿½ï¿½]ï¿½w---//
+$modversion['blocks'] = [];
 $i=1;
 $modversion['blocks'][$i]['file'] = "show_today_lunch.php";
 $modversion['blocks'][$i]['name'] = _MI_LUNCH_BNAME1;
@@ -155,8 +155,8 @@ $modversion['blocks'][$i]['show_func'] = "show_week";
 $modversion['blocks'][$i]['template'] = "show_week_lunch.html";
 
 
-//---¼ËªO³]©w---//
-$modversion['templates'] = array();
+//---ï¿½ËªOï¿½]ï¿½w---//
+$modversion['templates'] = [];
 $i=1;
 $modversion['templates'][$i]['file'] = 'tad_lunch_view_add_menu.html';
 $modversion['templates'][$i]['description'] = 'tad_lunch_view_add_menu.html';
@@ -177,11 +177,11 @@ $i++;
 $modversion['templates'][$i]['file'] = 'tad_lunch_adm_import.html';
 $modversion['templates'][$i]['description'] = 'tad_lunch_adm_import.html';
 
-//---µû½×---//
+//---ï¿½ï¿½ï¿½ï¿½---//
 //$modversion['hasComments'] = 1;
-//$modversion['comments']['pageName'] = '³æ¤@­¶­±.php';
-//$modversion['comments']['itemName'] = '¥D½s¸¹';
+//$modversion['comments']['pageName'] = 'ï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½.php';
+//$modversion['comments']['itemName'] = 'ï¿½Dï¿½sï¿½ï¿½';
 
-//---³qª¾---//
+//---ï¿½qï¿½ï¿½---//
 //$modversion['hasNotification'] = 1;
 ?>

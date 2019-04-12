@@ -1,21 +1,21 @@
 <?php
-/*-----------¤Þ¤JÀÉ®×°Ï--------------*/
+/*-----------ï¿½Þ¤Jï¿½É®×°ï¿½--------------*/
 include "header.php";
 include_once XOOPS_ROOT_PATH."/header.php";
 
 
-//¨Ï¥ÎÅv­­ 
+//ï¿½Ï¥ï¿½ï¿½vï¿½ï¿½ 
 if(!chk_power("tad_lunch","1"))redirect_header(XOOPS_URL,3,_MD_LUNCH_NO_POWER);
 
-//©w¸qÅÜ¼Æ
+//ï¿½wï¿½qï¿½Ü¼ï¿½
 $g_date = date(y-m-d);
 $g_date = $_GET['pdf_date'];
 
-//¶g¦¸ªºÅÜ¼Æ
+//ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½
 $weeks = "";
 
 
-// ¤é´Áªº¨ú±o
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½o
 if(empty($g_date)){
   $g_date = date("Y-m-d");
   $week_days = date("w");
@@ -28,9 +28,9 @@ if(empty($g_date)){
 }
 
 
-//¶g¦¸ªºÅÜ¼Æ³B²z
-//¾Ç´Áªì¡A¾Ç´Á¥½¡A¦P¶g³£ºâ
-//¾Ç´Áªì¡A¨º­Ó¬P´Áªº²Ä¤@¤Ñ 
+//ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ü¼Æ³Bï¿½z
+//ï¿½Ç´ï¿½ï¿½ï¿½Aï¿½Ç´ï¿½ï¿½ï¿½ï¿½Aï¿½Pï¿½gï¿½ï¿½ï¿½ï¿½
+//ï¿½Ç´ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ó¬Pï¿½ï¿½ï¿½ï¿½ï¿½Ä¤@ï¿½ï¿½ 
   $d = DtoAr($xoopsModuleConfig['date_b']);
   $week_days = date("w",mktime(0,0,0,$d[m],$d[d],$d[y]));
   $seme_week_day = GetdayAdd($xoopsModuleConfig['date_b'] ,-$week_days);
@@ -43,7 +43,7 @@ if(($week_day >= $seme_week_day) & ($week_day <= $xoopsModuleConfig['date_e'])){
 }
 
 
-//¨ú±o¤é´Áªº¯x°}¨ç¼Æ 
+//ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½}ï¿½ï¿½ï¿½ 
 $d_ar = DtoAr($week_day);
 
 
@@ -65,14 +65,14 @@ $pdf->SetTextColor(0,0,0);
 
 $pdf->Cell(0,25,$xoopsModuleConfig['title']._MD_P_WEEK_TITLE,0,1,'C');
 
-// pdf title ¨ú±o¾Ç¦~ 
+// pdf title ï¿½ï¿½ï¿½oï¿½Ç¦~ 
 $str_title2 = Num2CNum(get_gc_year($d_ar))." "._MD_LUNCH_SY." "._MD_LUNCH_S1." ".Num2CNum(get_gc_seme($d_ar))." ". _MD_LUNCH_S2." ".$weeks_show;
 $pdf->SetFont('Big5-hw','B',25);
 
 $pdf->Cell(0,20,$str_title2,0,1,'C');
 
 
-// pdf table title ¨ú±o¤é´Á 
+// pdf table title ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ 
 $pdf->SetFont('Big5-hw','B',16);
 $pdf->Cell(20,10,_MD_LUNCH_DAY,1,0,'C');
 for($i = 0 ; $i < 7 ; $i++){
@@ -82,8 +82,8 @@ for($i = 0 ; $i < 7 ; $i++){
   $pdf->Cell(33,10,Num2CNum((int)$d[m])._MD_LUNCH_M.Num2CNum((int)$d[d])._MD_LUNCH_D,1,$n,'C');
 };
 
-//¦C¥X¬P´Á 
-// pdf table title ¨ú±o¬P´Á
+//ï¿½Cï¿½Xï¿½Pï¿½ï¿½ 
+// pdf table title ï¿½ï¿½ï¿½oï¿½Pï¿½ï¿½
 $pdf->SetFont('Big5-hw','B',16);
 $pdf->Cell(20,10,_MD_LUNCH_WEEKN,1,0,'C');
 for($i = 0 ; $i < 7 ; $i++){
@@ -92,9 +92,9 @@ for($i = 0 ; $i < 7 ; $i++){
 };
 
 
-// (body) ­¹ÃÐ¤º®e
-//Åã¥Ü¤@¶gªºµæ³æ 
-//±q¸ê®Æ®w§ì¥X¸ê®Æ 
+// (body) ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½e
+//ï¿½ï¿½Ü¤@ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ 
+//ï¿½qï¿½ï¿½Æ®wï¿½ï¿½Xï¿½ï¿½ï¿½ 
 $sql="select * from ".$xoopsDB->prefix("tad_lunch_main")." where dates between '{$week_day}' and date_add('{$week_day}', interval 6 day)";
 $result=$xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'],3,_MD_SQL_ERROR);
 while($wd=$xoopsDB->fetchArray($result)){
@@ -102,8 +102,8 @@ while($wd=$xoopsDB->fetchArray($result)){
   $food[$wid]=$wd;
 }
 
-// show µæ³æ 
-// show ¥D­¹ 
+// show ï¿½ï¿½ï¿½ 
+// show ï¿½Dï¿½ï¿½ 
 $pdf->SetFont('Big5-hw','B',16);
 $pdf->Cell(20,10,_MD_LUNCH_DISH_MAIN,1,0,'C');
 $pdf->SetFont('Big5-hw','',14);
@@ -112,15 +112,15 @@ for($i = 0 ; $i < 7 ; $i++){
   $pdf->Cell(33,10,$food[$i]["staple"],1,$n,'C');
 };
 
-// show µæ¦â 
-$width_array=array(20,33,33,33,33,33,33,33);
+// show ï¿½ï¿½ï¿½ 
+$width_array= [20, 33, 33, 33, 33, 33, 33, 33];
 $pdf->SetWidths($width_array);
-$align_array=array("C","C","C","C","C","C","C","C");
+$align_array= ["C", "C", "C", "C", "C", "C", "C", "C"];
 $pdf->SetAligns($align_array);
 // context
-$fcode=array('Big5-hw','Big5-hw','Big5-hw','Big5-hw','Big5-hw','Big5-hw','Big5-hw','Big5-hw');
-$fstyle=array('b','','','','','','','');
-$fsize=array(16,14,14,14,14,14,14,14);
+$fcode= ['Big5-hw', 'Big5-hw', 'Big5-hw', 'Big5-hw', 'Big5-hw', 'Big5-hw', 'Big5-hw', 'Big5-hw'];
+$fstyle= ['b', '', '', '', '', '', '', ''];
+$fsize= [16, 14, 14, 14, 14, 14, 14, 14];
 $staple_dish[0]=_MD_LUNCH_DISH_DISH;
 for($i = 0 ; $i < 7 ; $i++){
       if(empty($food[$i]["dish1"])){
@@ -152,7 +152,7 @@ for($i = 0 ; $i < 7 ; $i++){
 };
 $pdf->Row($staple_dish,$fcode,$fstyle,$fsize);
 
-// show ´ö 
+// show ï¿½ï¿½ 
 $pdf->SetFont('Big5-hw','B',16);
 $pdf->Cell(20,10,_MD_LUNCH_DISH_SOUP,1,0,'C');
 $pdf->SetFont('Big5-hw','',14);
@@ -161,7 +161,7 @@ for($i = 0 ; $i < 7 ; $i++){
   $pdf->Cell(33,10,$food[$i]["soup"],1,$n,'C');
 };
 
-// show ¤ôªG 
+// show ï¿½ï¿½ï¿½G 
 $pdf->SetFont('Big5-hw','B',16);
 $pdf->Cell(20,10,_MD_LUNCH_DISH_FRUIT,1,0,'C');
 $pdf->SetFont('Big5-hw','',14);
@@ -170,7 +170,7 @@ for($i = 0 ; $i < 7 ; $i++){
   $pdf->Cell(33,10,$food[$i]["fruit"],1,$n,'C');
 };
 
-// show ³Æµù
+// show ï¿½Æµï¿½
 $pdf->SetFont('Big5-hw','B',16);
 $pdf->Cell(20,10,_MD_LUNCH_DISH_REM,1,0,'C');
 $pdf->SetFont('Big5-hw','',14);
@@ -200,7 +200,7 @@ $pdf->SetFont('Big5-hw','',18);
 $pdf->Cell(50,25,"",0,0,'L');
 
 
-/*-----------¨q¥Xµ²ªG°Ï--------------*/
-//¿é¥XPDF
+/*-----------ï¿½qï¿½Xï¿½ï¿½ï¿½Gï¿½ï¿½--------------*/
+//ï¿½ï¿½XPDF
 $pdf->Output();
 ?>

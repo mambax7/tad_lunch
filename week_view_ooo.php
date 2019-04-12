@@ -1,5 +1,5 @@
 <?php
-/*-----------¤Þ¤JÀÉ®×°Ï--------------*/
+/*-----------ï¿½Þ¤Jï¿½É®×°ï¿½--------------*/
 include "header.php";
 include_once XOOPS_ROOT_PATH."/header.php";
 
@@ -7,19 +7,19 @@ include_once XOOPS_ROOT_PATH."/header.php";
 include_once "ooo_class.php";
 
 
-//¨Ï¥ÎÅv­­ 
+//ï¿½Ï¥ï¿½ï¿½vï¿½ï¿½ 
 if(!chk_power("tad_lunch","4"))redirect_header(XOOPS_URL,3,_MD_LUNCH_NO_POWER);
 
 
-//©w¸qÅÜ¼Æ
+//ï¿½wï¿½qï¿½Ü¼ï¿½
 $g_date = date(y-m-d);
 $g_date = $_GET['pdf_date'];
 
-//¶g¦¸ªºÅÜ¼Æ
+//ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½
 $weeks = "";
 
 
-//¤é´Áªº¨ú±o
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½o
 if(empty($g_date)){
   $g_date = date("Y-m-d");
   $week_days = date("w");
@@ -32,9 +32,9 @@ if(empty($g_date)){
 }
 
 
-//¶g¦¸ªºÅÜ¼Æ³B²z
-//¾Ç´Áªì¡A¾Ç´Á¥½¡A¦P¶g³£ºâ
-//¾Ç´Áªì¡A¨º­Ó¬P´Áªº²Ä¤@¤Ñ 
+//ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ü¼Æ³Bï¿½z
+//ï¿½Ç´ï¿½ï¿½ï¿½Aï¿½Ç´ï¿½ï¿½ï¿½ï¿½Aï¿½Pï¿½gï¿½ï¿½ï¿½ï¿½
+//ï¿½Ç´ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ó¬Pï¿½ï¿½ï¿½ï¿½ï¿½Ä¤@ï¿½ï¿½ 
   $d = DtoAr($xoopsModuleConfig['date_b']);
   $week_days = date("w",mktime(0,0,0,$d[m],$d[d],$d[y]));
   $seme_week_day = GetdayAdd($xoopsModuleConfig['date_b'] ,-$week_days);
@@ -47,15 +47,15 @@ if(($week_day >= $seme_week_day) & ($week_day <= $xoopsModuleConfig['date_e'])){
 }
 
 
-//¨ú±o¤é´Áªº¯x°}¨ç¼Æ 
+//ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½}ï¿½ï¿½ï¿½ 
 $d_ar = DtoAr($week_day);
 
 
-// ¨ú±o ooo config
-// ¨ú±o¾Ç®Õ¦WºÙ
+// ï¿½ï¿½ï¿½o ooo config
+// ï¿½ï¿½ï¿½oï¿½Ç®Õ¦Wï¿½ï¿½
 $title_c=$xoopsModuleConfig['title']." "._MD_P_WEEK_TITLE;
 $a_title[0]=$title_c;
-// ¨ú±o¾Ç¦~ 
+// ï¿½ï¿½ï¿½oï¿½Ç¦~ 
 $str_title2 = Num2CNum(get_gc_year($d_ar))." "._MD_LUNCH_SY." "._MD_LUNCH_S1." ".Num2CNum(get_gc_seme($d_ar))." ". _MD_LUNCH_S2." ".$weeks_show;
 $a_title[1]= $str_title2;
 $a_title[2]= $xoopsModuleConfig['master'];
@@ -66,17 +66,17 @@ for($i = 0 ; $i < 7 ; $i++){
   $ddate = GetdayAdd($week_day ,$i);
   $d = DtoAr($ddate);
 
-// ooo table title ¨ú±o¤é´Á 
+// ooo table title ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ 
   $a_date[$i]= Num2CNum((int)$d[m])." "._MD_LUNCH_M." ".Num2CNum((int)$d[d])." "._MD_LUNCH_D." ";
 
-// ¨C¤éµæ¦â 
-// $k ¥Nªí¨C¤é²Ä k ¹Dµæ
+// ï¿½Cï¿½ï¿½ï¿½ï¿½ 
+// $k ï¿½Nï¿½ï¿½Cï¿½ï¿½ï¿½ k ï¿½Dï¿½ï¿½
  $k=0;
   $sql="select * from ".$xoopsDB->prefix("tad_lunch_main")." where dates = '{$ddate}'";
   $result=$xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'],3,_MD_SQL_ERROR);
   if($food=$xoopsDB->fetchArray($result)){
     
-// ooo show_dish_items §÷®Æ 
+// ooo show_dish_items ï¿½ï¿½ï¿½ï¿½ 
     if(!empty($food["staple_sn"])){
       $sql="select * from ".$xoopsDB->prefix("tad_lunch_dish")." where id = '{$food["staple_sn"]}'";
       $result_ooo=$xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'],3,_MD_SQL_ERROR);
@@ -224,7 +224,7 @@ for($i = 0 ; $i < 7 ; $i++){
 };
 
 
-$array_context=array($a_title,$a_date,$weeks_arr);
+$array_context= [$a_title, $a_date, $weeks_arr];
 
 
 // print_r($array);  
@@ -237,7 +237,7 @@ function  make_paper_ooo($array,$array_context){
 
 	$ooo_path="ooo/view";
 
-	//·s¼W¤@­Ó  zipfile  ¹ê¨Ò
+	//ï¿½sï¿½Wï¿½@ï¿½ï¿½  zipfile  ï¿½ï¿½ï¿½
 	$ttt  =  new  zipfile;
 
 	if (is_dir($ooo_path)) {
@@ -279,27 +279,27 @@ function  make_paper_ooo($array,$array_context){
             closedir($dh);
         }
     }
-	//Åª¥X content.xml
+	//Åªï¿½X content.xml
 	$data = $ttt->read_file($ooo_path."/content.xml");
-	//©î¸Ñ content.xml
+	//ï¿½ï¿½ï¿½ content.xml
 	$arr1 = explode("<office:spreadsheet>",$data);
-	//ÀÉÀY
+	//ï¿½ï¿½ï¿½Y
 	$con_head = $arr1[0]."<office:spreadsheet>";
 	$arr2 = explode("</office:spreadsheet>",$arr1[1]);
-	//¸ê®Æ¤º®e
+	//ï¿½ï¿½Æ¤ï¿½ï¿½e
 	$con_body = $arr2[0];
-	//ÀÉ§À    ´«¸ê®Æªí»Ý </table:table></office:spreadsheet>
+	//ï¿½É§ï¿½    ï¿½ï¿½ï¿½ï¿½Æªï¿½ï¿½ </table:table></office:spreadsheet>
 	$con_foot = "</office:spreadsheet>".$arr2[1];
 
-// ³B²z table sheet  spreadsheet
+// ï¿½Bï¿½z table sheet  spreadsheet
 //  $bod_arr = explode("<table:table ",$con_body);
 //  $tab_head=$bod_arr[0];
 //  $bod_arr = explode("<table:table>",$bod_arr[1]);
 
-	//¶}©l®M¥Î¸ê®Æ
-	//´À´«{´`Àô¶}©l}
-	$p[0]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{´`Àô¶}©l\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
-	$p[1]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{´`Àôµ²§ô\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
+	//ï¿½}ï¿½lï¿½Mï¿½Î¸ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½{ï¿½`ï¿½ï¿½ï¿½}ï¿½l}
+	$p[0]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{ï¿½`ï¿½ï¿½ï¿½}ï¿½l\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
+	$p[1]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
 
 	$r[0]="starting";
 	$r[1]="ending";
@@ -308,7 +308,7 @@ function  make_paper_ooo($array,$array_context){
 	$con_body=preg_replace($p,$r, $con_body);
 	$con_body =iconv("Big5","UTF-8",$con_body);
 
-	//¨ú¥X´`Àô¤º®e
+	//ï¿½ï¿½ï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½e
 	$arr_a=explode("starting",$con_body);
 	$arr_b=explode("ending",$arr_a[1]);
 	$con1_body=$arr_a[0];
@@ -320,7 +320,7 @@ function  make_paper_ooo($array,$array_context){
 //	echo "</pre>";
 //	exit;
 	$loop_data="";
-	$temp_arr_loop=array();
+	$temp_arr_loop= [];
 	foreach($array[0] as $val){
 		$temp_arr_loop['dish'] = $val[0];
 		$temp_arr_loop['item_name1'] = $val[1][1];
@@ -357,7 +357,7 @@ function  make_paper_ooo($array,$array_context){
 	}
 	
 
-	$temp_arr=array();
+	$temp_arr= [];
 	$temp_arr['tittle']=$array_context[0][0];
 	$temp_arr['seme_week'] =$array_context[0][1];
 	$temp_arr['date0'] =$array_context[1][0];
@@ -376,7 +376,7 @@ function  make_paper_ooo($array,$array_context){
 
 	$replace_data = $con_head.$con1_data.$loop_data.$con2_data.$con_foot;
 	
-	//§â¤@¨Ç¦h¾lªº¼ÐÅÒ¥HªÅ¥Õ¨ú¥N
+	//ï¿½ï¿½@ï¿½Ç¦hï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Ò¥Hï¿½Å¥Õ¨ï¿½ï¿½N
 	$pattern[0]="/\{([^\}]*)\}/";
 	$pattern[1]="/starting/";
 	$pattern[2]="/ending/";
@@ -388,10 +388,10 @@ function  make_paper_ooo($array,$array_context){
 
 	$ttt->add_file($replace_data,"content.xml");
 
-	//²£¥Í  zip  ÀÉ
+	//ï¿½ï¿½ï¿½ï¿½  zip  ï¿½ï¿½
 	$sss  =  $ttt->file();
 
-	//¥H¦ê¬y¤è¦¡°e¥X  ooo.sxw
+	//ï¿½Hï¿½ï¿½yï¿½è¦¡ï¿½eï¿½X  ooo.sxw
 	if(strpos($_SERVER['HTTP_USER_AGENT'] , 'MSIE') || strpos($_SERVER['HTTP_USER_AGENT'] , 'Opera')) $mimeType="application/x-download";
 	elseif($file_extname=="odt") $mimeType="application/vnd.oasis.opendocument.spreadsheet";
 	else $mimeType="application/vnd.sun.xml.calc";

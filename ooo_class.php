@@ -5,8 +5,8 @@
 */
 class zipfile 
 { 
-  var $datasec = array(); 
-  var $ctrl_dir = array(); 
+  var $datasec = [];
+  var $ctrl_dir = [];
   var $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; 
   var $old_offset = 0; 
 
@@ -217,7 +217,7 @@ function change_temp2($arr,$source) {
 
  //XML ����ѷ��ഫ
 function xml_reference_change($text){
-	$sw = array("&"=>"&amp;","<"=>"&lt;",">"=>"&gt;","\""=>"&quot;","'"=>"&apos;");
+	$sw = ["&" =>"&amp;", "<" =>"&lt;", ">" =>"&gt;", "\"" =>"&quot;", "'" =>"&apos;"];
 	$all_word=array_keys($sw);
 	foreach($all_word as $spec_uni){
 		$text=str_replace($spec_uni,$sw[$spec_uni],$text);

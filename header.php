@@ -2,7 +2,7 @@
 include_once "../../mainfile.php";
 include_once "function.php";
 
-//§PÂ_¬O§_¹ï¸Ó¼Ò²Õ¦³ºÞ²zÅv­­
+//ï¿½Pï¿½_ï¿½Oï¿½_ï¿½ï¿½Ó¼Ò²Õ¦ï¿½ï¿½Þ²zï¿½vï¿½ï¿½
 $isAdmin=false;
 if ($xoopsUser) {
     $module_id = $xoopsModule->getVar('mid');
@@ -15,17 +15,17 @@ if($isAdmin){
   $interface_menu[_TAD_TO_ADMIN]="admin/main.php";
 }
 
-//©w¸qÅÜ¼Æ
-//©w¸q¯x°}
-$weeks_arr = array(
+//ï¿½wï¿½qï¿½Ü¼ï¿½
+//ï¿½wï¿½qï¿½xï¿½}
+$weeks_arr = [
     "0"=>_MD_LUNCH_WEEK0 ,
     "1"=>_MD_LUNCH_WEEK1 ,
     "2"=>_MD_LUNCH_WEEK2 ,
     "3"=>_MD_LUNCH_WEEK3 ,
     "4"=>_MD_LUNCH_WEEK4 ,
     "5"=>_MD_LUNCH_WEEK5 ,
-    "6"=>_MD_LUNCH_WEEK6 
-);
+    "6"=>_MD_LUNCH_WEEK6
+];
 
 
 ?>

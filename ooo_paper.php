@@ -4,13 +4,13 @@
 include_once "ooo_class.php";
 
 
-$array=array(
-array("¤ý¤jÀY","7234451","a1@mail.tnc.edu.tw","¥x«n¿¤¨Î¨½Âí¦w¦è¨½¨Î¦wªF¸ô6¸¹"),
-array("¤ý¤GÀY","7234452","a2@mail.tnc.edu.tw","¥x«n¿¤¨Î¨½Âí¦w¦è¨½¨Î¦wªF¸ô7¸¹"),
-array("¤ý¤TÀY","7234453","a3@mail.tnc.edu.tw","¥x«n¿¤¨Î¨½Âí¦w¦è¨½¨Î¦wªF¸ô8¸¹"),
-array("¤ý¥|ÀY","7234454","a4@mail.tnc.edu.tw","¥x«n¿¤¨Î¨½Âí¦w¦è¨½¨Î¦wªF¸ô9¸¹"),
-array("¤ý¤pÀY","7234455","a5@mail.tnc.edu.tw","¥x«n¿¤¨Î¨½Âí¦w¦è¨½¨Î¦wªF¸ô10¸¹"),
-);
+$array= [
+    ["ï¿½ï¿½ï¿½jï¿½Y", "7234451", "a1@mail.tnc.edu.tw", "ï¿½xï¿½nï¿½ï¿½ï¿½Î¨ï¿½ï¿½ï¿½wï¿½è¨½ï¿½Î¦wï¿½Fï¿½ï¿½6ï¿½ï¿½"],
+    ["ï¿½ï¿½ï¿½Gï¿½Y", "7234452", "a2@mail.tnc.edu.tw", "ï¿½xï¿½nï¿½ï¿½ï¿½Î¨ï¿½ï¿½ï¿½wï¿½è¨½ï¿½Î¦wï¿½Fï¿½ï¿½7ï¿½ï¿½"],
+    ["ï¿½ï¿½ï¿½Tï¿½Y", "7234453", "a3@mail.tnc.edu.tw", "ï¿½xï¿½nï¿½ï¿½ï¿½Î¨ï¿½ï¿½ï¿½wï¿½è¨½ï¿½Î¦wï¿½Fï¿½ï¿½8ï¿½ï¿½"],
+    ["ï¿½ï¿½ï¿½|ï¿½Y", "7234454", "a4@mail.tnc.edu.tw", "ï¿½xï¿½nï¿½ï¿½ï¿½Î¨ï¿½ï¿½ï¿½wï¿½è¨½ï¿½Î¦wï¿½Fï¿½ï¿½9ï¿½ï¿½"],
+    ["ï¿½ï¿½ï¿½pï¿½Y", "7234455", "a5@mail.tnc.edu.tw", "ï¿½xï¿½nï¿½ï¿½ï¿½Î¨ï¿½ï¿½ï¿½wï¿½è¨½ï¿½Î¦wï¿½Fï¿½ï¿½10ï¿½ï¿½"],
+];
 
 
 make_paper_ooo($array);
@@ -19,7 +19,7 @@ function  make_paper_ooo($array){
 
 	$ooo_path="ooo/view";
 
-	//·s¼W¤@­Ó  zipfile  ¹ê¨Ò
+	//ï¿½sï¿½Wï¿½@ï¿½ï¿½  zipfile  ï¿½ï¿½ï¿½
 	$ttt  =  new  zipfile;
 
 	if (is_dir($ooo_path)) {
@@ -48,23 +48,23 @@ function  make_paper_ooo($array){
 			closedir($dh);
 		}
 	}
-	//Åª¥X content.xml
+	//Åªï¿½X content.xml
 	$data = $ttt->read_file($ooo_path."/content.xml");
-	//©î¸Ñ content.xml
+	//ï¿½ï¿½ï¿½ content.xml
 	$arr1 = explode("<office:body>",$data);
-	//ÀÉÀY
+	//ï¿½ï¿½ï¿½Y
 	$con_head = $arr1[0]."<office:body>";
 	$arr2 = explode("</office:body>",$arr1[1]);
-	//¸ê®Æ¤º®e
+	//ï¿½ï¿½Æ¤ï¿½ï¿½e
 	$con_body = $arr2[0];
-	//ÀÉ§À
+	//ï¿½É§ï¿½
 	$con_foot = "</office:body>".$arr2[1];
 
 
-	//¶}©l®M¥Î¸ê®Æ
-	//´À´«{´`Àô¶}©l}
-	$p[0]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{´`Àô¶}©l\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
-	$p[1]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{´`Àôµ²§ô\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
+	//ï¿½}ï¿½lï¿½Mï¿½Î¸ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½{ï¿½`ï¿½ï¿½ï¿½}ï¿½l}
+	$p[0]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{ï¿½`ï¿½ï¿½ï¿½}ï¿½l\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
+	$p[1]="/(<table:table-row[^\>]*>{1})(<table:table-cell[^\>]*>{1})(<text:p[^>]*>{1})\{ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\}(<\/text:p><\/table:table-cell>)(<table:table-cell[^\>]*>)*(<\/table:table-row>)/";
 
 	$r[0]="starting";
 	$r[1]="ending";
@@ -73,7 +73,7 @@ function  make_paper_ooo($array){
 	$con_body=preg_replace($p,$r, $con_body);
 	$con_body =iconv("Big5","UTF-8",$con_body);
 
-	//¨ú¥X´`Àô¤º®e
+	//ï¿½ï¿½ï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½e
 	$arr_a=explode("starting",$con_body);
 	$arr_b=explode("ending",$arr_a[1]);
 	$con1_body=$arr_a[0];
@@ -82,19 +82,19 @@ function  make_paper_ooo($array){
 
 	//print_r($array);
 	$loop_data="";
-	$temp_arr_loop=array();
+	$temp_arr_loop= [];
 	foreach($array as $val){
 		$temp_arr_loop['dish'] = $val[0] ;
 		$temp_arr_loop['item_name1'] = $val[1] ;
 		$temp_arr_loop['item_number1'] = $val[2] ;
 		$temp_arr_loop['item_name2'] = $val[3] ;
 		$loop_data.=$ttt->change_temp($temp_arr_loop,$loop_body,0);
-		$temp_arr_loop=array();
+		$temp_arr_loop= [];
 	}
 
-	$temp_arr=array();
-	$temp_arr['school']="¦hÅ]°ê¤p";
-	$temp_arr['class'] ="¥|¦~¤C¯Z" ;
+	$temp_arr= [];
+	$temp_arr['school']="ï¿½hï¿½]ï¿½ï¿½p";
+	$temp_arr['class'] ="ï¿½|ï¿½~ï¿½Cï¿½Z" ;
 	$temp_arr['date'] =date("Y-m-d") ;
 	$con1_data = $ttt->change_temp($temp_arr,$con1_body,0);
 	$con2_data = $ttt->change_temp($temp_arr,$con2_body,0);
@@ -105,7 +105,7 @@ function  make_paper_ooo($array){
 
 	$replace_data = $con_head.$con1_data.$loop_data.$con2_data.$con_foot;
 	
-	//§â¤@¨Ç¦h¾lªº¼ÐÅÒ¥HªÅ¥Õ¨ú¥N
+	//ï¿½ï¿½@ï¿½Ç¦hï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Ò¥Hï¿½Å¥Õ¨ï¿½ï¿½N
 	$pattern[0]="/\{([^\}]*)\}/";
 	$pattern[1]="/starting/";
 	$pattern[2]="/ending/";
@@ -117,10 +117,10 @@ function  make_paper_ooo($array){
 
 	$ttt->add_file($replace_data,"content.xml");
 
-	//²£¥Í  zip  ÀÉ
+	//ï¿½ï¿½ï¿½ï¿½  zip  ï¿½ï¿½
 	$sss  =  $ttt->file();
 
-	//¥H¦ê¬y¤è¦¡°e¥X  ooo.sxw
+	//ï¿½Hï¿½ï¿½yï¿½è¦¡ï¿½eï¿½X  ooo.sxw
 	if(strpos($_SERVER['HTTP_USER_AGENT'] , 'MSIE') || strpos($_SERVER['HTTP_USER_AGENT'] , 'Opera')) $mimeType="application/x-download";
 	elseif($file_extname=="odt") $mimeType="application/vnd.oasis.opendocument.spreadsheet";
 	else $mimeType="application/vnd.sun.xml.calc";

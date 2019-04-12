@@ -1,15 +1,15 @@
 <?php
 
-/*-----------function°Ï--------------*/
-//²Ä¤@­Ó°Ñ¼Æ¬O«ü©w¤é´Á¡A²Ä¤G­Ó°Ñ¼Æ¬O©¹«e©Î©¹«áªº¤é¼Æ 
+/*-----------functionï¿½ï¿½--------------*/
+//ï¿½Ä¤@ï¿½Ó°Ñ¼Æ¬Oï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½Aï¿½Ä¤Gï¿½Ó°Ñ¼Æ¬Oï¿½ï¿½ï¿½eï¿½Î©ï¿½ï¿½áªºï¿½ï¿½ï¿½ 
 function main_func($g_date="",$days="0"){
 // main
 
-//ÅÜ¼Æ
+//ï¿½Ü¼ï¿½
 global $xoopsDB,$weeks_arr,$xoopsModuleConfig,$weeks;
 
 
-// ¤é´Áªº¨ú±o
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½o
 if(empty($g_date)){
   $g_date = date("Y-m-d");
   $week_days = date("w");
@@ -22,9 +22,9 @@ if(empty($g_date)){
 }
 
 
-//¶g¦¸ªºÅÜ¼Æ³B²z
-//¾Ç´Áªì¡A¾Ç´Á¥½¡A¦P¶g³£ºâ
-//¾Ç´Áªì¡A¨º­Ó¬P´Áªº²Ä¤@¤Ñ 
+//ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ü¼Æ³Bï¿½z
+//ï¿½Ç´ï¿½ï¿½ï¿½Aï¿½Ç´ï¿½ï¿½ï¿½ï¿½Aï¿½Pï¿½gï¿½ï¿½ï¿½ï¿½
+//ï¿½Ç´ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ó¬Pï¿½ï¿½ï¿½ï¿½ï¿½Ä¤@ï¿½ï¿½ 
   $d = DtoAr($xoopsModuleConfig['date_b']);
   $week_days = date("w",mktime(0,0,0,$d[m],$d[d],$d[y]));
   $seme_week_day = GetdayAdd($xoopsModuleConfig['date_b'] ,-$week_days);
@@ -36,7 +36,7 @@ if(($week_day >= $seme_week_day) & ($week_day <= $xoopsModuleConfig['date_e'])){
   $weeks_show = "";
 }
 
-//¿ï¶g¦¸  ¤é´Á ( ¦~-¤ë-¤é)
+//ï¿½ï¿½gï¿½ï¿½  ï¿½ï¿½ï¿½ ( ï¿½~-ï¿½ï¿½-ï¿½ï¿½)
 $main="<table>
   <tr>
     <td width='50%' align='center'>
@@ -49,7 +49,7 @@ $main="<table>
     <td width='50%' align='center'>
   ";
 
-// ¿ï ¤é´Á ( ¦~-¤ë-¤é)
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ ( ï¿½~-ï¿½ï¿½-ï¿½ï¿½)
 $main.= select_date_form();
       
 $main.="</td>
@@ -57,12 +57,12 @@ $main.="</td>
   ";
 
 
-//¨ú±o¤é´Áªº¯x°}¨ç¼Æ 
+//ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½}ï¿½ï¿½ï¿½ 
 $d_ar = DtoAr($week_day);
 
 
 //table
-//«e¥b³¡ 
+//ï¿½eï¿½bï¿½ï¿½ 
 $main.="
 <table border='5' cellpadding='1' cellspacing='1' bgcolor='#99FF00'>
   <tr>
@@ -71,7 +71,7 @@ $main.="
   <tr>
   ";
 
-//¨ú±o¤é´Á 
+//ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ 
 $main.="<td align='center' bgcolor='#FFFFFF'>"._MD_LUNCH_DAY."</td>";
 for($i = 0 ; $i < 7 ; $i++){
   $ddate = GetdayAdd($week_day ,$i);
@@ -79,30 +79,30 @@ for($i = 0 ; $i < 7 ; $i++){
   $main.="<td align='center' bgcolor='#FFFFFF'>".Num2CNum((int)$d[m])." "._MD_LUNCH_M." ".Num2CNum((int)$d[d])." "._MD_LUNCH_D."</td>";
 }; 
 
-//´«¦æ 
+//ï¿½ï¿½ï¿½ï¿½ 
 $main.="</tr><tr>";
 
-//¦C¥X¬P´Á 
+//ï¿½Cï¿½Xï¿½Pï¿½ï¿½ 
 $main.="<td align='center' bgcolor='#FFFFFF'>"._MD_LUNCH_WEEKN."</td>";
 for($i = 0 ; $i < 7 ; $i++){
   $ddate = GetdayAdd($week_day ,$i);
   $d = DtoAr($ddate);
   $main.="<td align='center' bgcolor='#FFFFFF'>".$weeks_arr[$i]."</td>";
 };
-//¬P´Á(¸Ó¦æ)µ²§ô 
+//ï¿½Pï¿½ï¿½(ï¿½Ó¦ï¿½)ï¿½ï¿½ï¿½ï¿½ 
 $main.="</tr>"; 
 
-// (body) ­¹ÃÐ¤º®e
-//Åã¥Ü¤@¶gªºµæ³æ 
-//±q¸ê®Æ®w§ì¥X¸ê®Æ 
+// (body) ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½e
+//ï¿½ï¿½Ü¤@ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ 
+//ï¿½qï¿½ï¿½Æ®wï¿½ï¿½Xï¿½ï¿½ï¿½ 
 $sql="select * from ".$xoopsDB->prefix("tad_lunch_main")." where dates between '{$week_day}' and date_add('{$week_day}', interval 6 day)";
 $result=$xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'],3,_MD_SQL_ERROR);
 while($wd=$xoopsDB->fetchArray($result)){
   $wid = $wd[week];
   $food[$wid]=$wd;
 }
-//§PÂ_­þ¨ÇÄæ¦ì¬O§_Åã¥Ü¡A1 ¥Nªí¬O¡A0 ¥Nªí§_ 
-//¹w³]¤£Åã¥Ü 
+//ï¿½Pï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½_ï¿½ï¿½Ü¡A1 ï¿½Nï¿½ï¿½Oï¿½A0 ï¿½Nï¿½ï¿½_ 
+//ï¿½wï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ 
 $staple_YESNO = 0;
 $dish_YESNO = 0;
 $soup_YESNO = 0;
@@ -125,7 +125,7 @@ for($i = 0 ; $i < 7 ; $i++){
     $rem_YESNO = 1;
   }
 } 
-// show µæ³æ 
+// show ï¿½ï¿½ï¿½ 
 if($staple_YESNO){
   $main.="<td align='center' bgcolor='#FFFFFF'>"._MD_LUNCH_DISH_MAIN."</td>";
   for($i = 0 ; $i < 7 ; $i++){
@@ -135,7 +135,7 @@ if($staple_YESNO){
       $main.="<td align='center' bgcolor='#FFFFFF'>".$food[$i]["staple"]."</td>";
     }
   }
-//´«¦æ 
+//ï¿½ï¿½ï¿½ï¿½ 
   $main.="</tr><tr>";  
 }
 if($dish_YESNO){
@@ -172,7 +172,7 @@ if($dish_YESNO){
       }
     }
   }
-//´«¦æ 
+//ï¿½ï¿½ï¿½ï¿½ 
   $main.="</tr><tr>";  
 }
 if($soup_YESNO){
@@ -184,7 +184,7 @@ if($soup_YESNO){
       $main.="<td align='center' bgcolor='#FFFFFF'>".$food[$i]["soup"]."</td>";
     }
   }
-//´«¦æ 
+//ï¿½ï¿½ï¿½ï¿½ 
   $main.="</tr><tr>";  
 }
 if($fruit_YESNO){
@@ -196,7 +196,7 @@ if($fruit_YESNO){
       $main.="<td align='center' bgcolor='#FFFFFF'>".$food[$i]["fruit"]."</td>";
     }
   }
-//´«¦æ 
+//ï¿½ï¿½ï¿½ï¿½ 
   $main.="</tr><tr>";  
 }
 if($rem_YESNO){
@@ -208,11 +208,11 @@ if($rem_YESNO){
       $main.="<td align='center' bgcolor='#FFFFFF'>".$food[$i]["rem"]."</td>";
     }
   }
-//´«¦æ 
+//ï¿½ï¿½ï¿½ï¿½ 
   $main.="</tr><tr>";  
 }
 
-//«á¥b³¡ 
+//ï¿½ï¿½bï¿½ï¿½ 
 $main.="</table>";
 
 return $main;
@@ -220,44 +220,44 @@ return $main;
 
 
 function show_week(){
-//«Å§i 
-/*-----------¤Þ¤JÀÉ®×°Ï--------------*/
+//ï¿½Å§i 
+/*-----------ï¿½Þ¤Jï¿½É®×°ï¿½--------------*/
 
 include_once XOOPS_ROOT_PATH."/mainfile.php";
 
-//ÅÜ¼Æ
+//ï¿½Ü¼ï¿½
 global $xoopsDB,$weeks_arr;
 
-//¤Þ¤J¥»¼Ò²Õªº¦@¦PfunctionÀÉ®×
+//ï¿½Þ¤Jï¿½ï¿½ï¿½Ò²Õªï¿½ï¿½@ï¿½Pfunctionï¿½É®ï¿½
 
 include_once XOOPS_ROOT_PATH."/modules/tad_lunch/function.php";
 
 
 
-//©w¸qÅÜ¼Æ
+//ï¿½wï¿½qï¿½Ü¼ï¿½
 
 
-//©w¸q¯x°}
-$weeks_arr = array(
+//ï¿½wï¿½qï¿½xï¿½}
+$weeks_arr = [
     "0"=>_MD_LUNCH_WEEK0 ,
     "1"=>_MD_LUNCH_WEEK1 ,
     "2"=>_MD_LUNCH_WEEK2 ,
     "3"=>_MD_LUNCH_WEEK3 ,
     "4"=>_MD_LUNCH_WEEK4 ,
     "5"=>_MD_LUNCH_WEEK5 ,
-    "6"=>_MD_LUNCH_WEEK6 
-);
+    "6"=>_MD_LUNCH_WEEK6
+];
 
-//¶g¦¸ªºÅÜ¼Æ
+//ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½
 $weeks = "";
 
 
-/*-----------°õ¦æ°Ê§@§PÂ_°Ï--------------*/
+/*-----------ï¿½ï¿½ï¿½ï¿½Ê§@ï¿½Pï¿½_ï¿½ï¿½--------------*/
 
 	show_main($_REQUEST['d_date'],$_REQUEST['add_days']);
 
 
-/*-----------¨q¥Xµ²ªG°Ï--------------*/
+/*-----------ï¿½qï¿½Xï¿½ï¿½ï¿½Gï¿½ï¿½--------------*/
   $block['show']=$main;
   return $block;
 }

@@ -9,7 +9,7 @@ include_once "../function.php";
 function list_all(){
   global $xoopsDB,$xoopsTpl;
   
-  $tbl_arr=array('lunch_config','lunch_main','lunch_dish','lunch_kind');
+  $tbl_arr= ['lunch_config', 'lunch_main', 'lunch_dish', 'lunch_kind'];
   $i=0;
   foreach($tbl_arr as $tbl){
     $sql="select count(*) from ".$xoopsDB->prefix("sxs_{$tbl}");

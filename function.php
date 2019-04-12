@@ -293,7 +293,7 @@ function chk_power($gperm_name="",$gperm_itemid=""){
 	}
 	//�ݨϥΪ̬O�ݩ󤰻�s��
 	if(empty($xoopsUser)){
-		$groups_id_arr=array(3);
+		$groups_id_arr= [3];
 	}else{
   	$groups_id_arr =& $xoopsUser->getGroups();
   }
