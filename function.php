@@ -1,32 +1,32 @@
 <?php
-//¤Þ¤JTadToolsªº¨ç¦¡®w
+//ï¿½Þ¤JTadToolsï¿½ï¿½ï¿½ç¦¡ï¿½w
 if(!file_exists(XOOPS_ROOT_PATH."/modules/tadtools/tad_function.php")){
  redirect_header("http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50",3, _TAD_NEED_TADTOOLS);
 }
 include_once XOOPS_ROOT_PATH."/modules/tadtools/tad_function.php";
 
 
-/* ¸ê®Æ¨ú±o¥\¯à */
+/* ï¿½ï¿½Æ¨ï¿½ï¿½oï¿½\ï¿½ï¿½ */
 
-//¨ú±o¾Ç¦~¡A¿é¤J¬°¯x°} 
+//ï¿½ï¿½ï¿½oï¿½Ç¦~ï¿½Aï¿½ï¿½Jï¿½ï¿½ï¿½xï¿½} 
 function get_gc_year($dar=""){
   $gc_year=($dar[m]>=8)?$dar[y]-1911:($dar[y]-1911)-1;
 	return $gc_year;
 }
 
-//¨ú±o¾Ç´Á¡A¿é¤J¬°¯x°} 
+//ï¿½ï¿½ï¿½oï¿½Ç´ï¿½ï¿½Aï¿½ï¿½Jï¿½ï¿½ï¿½xï¿½} 
 function get_gc_seme($dar=""){
  	$gc_seme=($dar[m]>=8 or $dar[m]<=1)?1:2;
 	return $gc_seme;
 }
 
 
-//®É¶¡¨ç¼Æ 
+//ï¿½É¶ï¿½ï¿½ï¿½ï¿½ 
 
 function DtoCh($dday="", $st="-") {
-  if (!$dday) //¨Ï¥Î¹w³]¤é´Á
+  if (!$dday) //ï¿½Ï¥Î¹wï¿½]ï¿½ï¿½ï¿½
   $dday = date("Y-m-j");
-  //§â¦è¤¸¤é´Á§ï¬°¥Á°ê¤é´Á  $st¬°¤À¹j²Å¸¹
+  //ï¿½ï¿½è¤¸ï¿½ï¿½ï¿½ï¿½ï¬°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  $stï¿½ï¿½ï¿½ï¿½ï¿½jï¿½Å¸ï¿½
 	$tok = strtok($dday,$st) ;
 	$i = 0 ;
 	while ($tok) {
@@ -40,9 +40,9 @@ function DtoCh($dday="", $st="-") {
 	return $cday ;
 }
 
-//¨ú±o¤é´Áªº¯x°}¨ç¼Æ 
+//ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½}ï¿½ï¿½ï¿½ 
 function ChtoD($dday="", $st="-") {
-  //§â¥Á°ê¤é´Á§ï¬°¦è¤¸¤é´Á  $st¬°¤À¹j²Å¸¹
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¬°ï¿½è¤¸ï¿½ï¿½ï¿½  $stï¿½ï¿½ï¿½ï¿½ï¿½jï¿½Å¸ï¿½
 	$tok = strtok($dday,$st) ;
 	$i = 0 ;
 	while ($tok) {
@@ -56,11 +56,11 @@ function ChtoD($dday="", $st="-") {
 	return $cday ;
 }
 
-//¯x°}¤À§O¨ú±o¦~¡B¤ë¡B¤é d[y],d[m],d[d]
+//ï¿½xï¿½}ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½oï¿½~ï¿½Bï¿½ï¿½Bï¿½ï¿½ d[y],d[m],d[d]
 function DtoAr($dday="", $st="-") {
-  if (!$dday) //¨Ï¥Î¹w³]¤é´Á
+  if (!$dday) //ï¿½Ï¥Î¹wï¿½]ï¿½ï¿½ï¿½
   $dday = date("Y-m-j");
-  //§â¦è¤¸¤é´Á§ï¬°¯x°}¤À§O¨ú±o¦~¡B¤ë¡B¤é  $st¬°¤À¹j²Å¸¹
+  //ï¿½ï¿½è¤¸ï¿½ï¿½ï¿½ï¿½ï¬°ï¿½xï¿½}ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½oï¿½~ï¿½Bï¿½ï¿½Bï¿½ï¿½  $stï¿½ï¿½ï¿½ï¿½ï¿½jï¿½Å¸ï¿½
   
 //  echo $dday;
 	$tok = strtok($dday,$st) ;
@@ -82,7 +82,7 @@ function DtoAr($dday="", $st="-") {
 }
 
 function GetdayAdd($dday ,$dayn,$st="-") {
-  //¤é´Á¤¤¥[´î¤é¼Æ
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 	$tok = strtok($dday,$st) ;
 	$i = 0 ;
 	while ($tok) {
@@ -94,8 +94,8 @@ function GetdayAdd($dday ,$dayn,$st="-") {
 }
 
 
-//¨ú±o¶g¼Æ
-//¦b½d³ò¥~ªº­È(¥H¾Ç´Á¬°¥D)¡A¶Ç¦^­È¬°0¡A¥H¬P´Á¤é¬°¨C¶gªº²Ä¤@¤Ñ ¡A²Ä¤@¶g¬°°_©l¶g 
+//ï¿½ï¿½ï¿½oï¿½gï¿½ï¿½
+//ï¿½bï¿½dï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½(ï¿½Hï¿½Ç´ï¿½ï¿½ï¿½ï¿½D)ï¿½Aï¿½Ç¦^ï¿½È¬ï¿½0ï¿½Aï¿½Hï¿½Pï¿½ï¿½ï¿½é¬°ï¿½Cï¿½gï¿½ï¿½ï¿½Ä¤@ï¿½ï¿½ ï¿½Aï¿½Ä¤@ï¿½gï¿½ï¿½ï¿½_ï¿½lï¿½g 
 function weeks_ok($date_b="" ,$date_e=""){
   if(!empty($date_b) && !empty($date_e)){
     $d_b = DtoAr($date_b);
@@ -126,16 +126,16 @@ return $weeks;
 
 
 /* -------------------------------------------------- *)
-(* Num2CNum  ±Nªü©Ô§B¼Æ¦rÂà¦¨¤¤¤å¼Æ¦r¦r¦ê
-(* ¨Ï¥Î¥Ü¨Ò:
-(*   Num2CNum(10002.34) ==> ¤@¸U¹s¤GÂI¤T¥|
+(* Num2CNum  ï¿½Nï¿½ï¿½ï¿½Ô§Bï¿½Æ¦rï¿½à¦¨ï¿½ï¿½ï¿½ï¿½Æ¦rï¿½rï¿½ï¿½
+(* ï¿½Ï¥Î¥Ü¨ï¿½:
+(*   Num2CNum(10002.34) ==> ï¿½@ï¿½Uï¿½sï¿½Gï¿½Iï¿½Tï¿½|
 (*
 (* Author: Wolfgang Chien <wolfgang@ms2.hinet.net>
 (* Date: 1996/08/04
 (* Update Date:
 (* -------------------------------------------------- */
 
-// (* ±N¦r¦ê¤Ï¦V, ¨Ò¦p: ¶Ç¤J '1234', ¶Ç¦^ '4321' *)
+// (* ï¿½Nï¿½rï¿½ï¿½Ï¦V, ï¿½Ò¦p: ï¿½Ç¤J '1234', ï¿½Ç¦^ '4321' *)
 function ConvertStr($sBeConvert){
 	$tt = '';
 	for ($x = strlen($sBeConvert)-1;$x>=0; $x--)
@@ -158,27 +158,27 @@ function Num2CNum($dblArabic,$ChineseNumeric='') {
 	else
 		$bMinus = False;
 	
-	$iPosOfDecimalPoint = strpos($sArabic,'.');  //(* ¨ú±o¤p¼ÆÂIªº¦ì¸m *)
+	$iPosOfDecimalPoint = strpos($sArabic,'.');  //(* ï¿½ï¿½ï¿½oï¿½pï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½m *)
  	
-  //(* ¥ý³B²z¾ã¼Æªº³¡¤À *)
+  //(* ï¿½ï¿½ï¿½Bï¿½zï¿½ï¿½Æªï¿½ï¿½ï¿½ï¿½ï¿½ *)
 	if ($iPosOfDecimalPoint == 0)
 		$sIntArabic = ConvertStr($sArabic);
 	else
 		$sIntArabic = ConvertStr(substr($sArabic, 0, $iPosOfDecimalPoint));
 	
-  //(* ±q­Ó¦ì¼Æ°_¥H¨C¥|¦ì¼Æ¬°¤@¤p¸` *)
+  //(* ï¿½qï¿½Ó¦ï¿½Æ°_ï¿½Hï¿½Cï¿½|ï¿½ï¿½Æ¬ï¿½ï¿½@ï¿½pï¿½` *)
 	
 	for ($iSection = 0 ; $iSection<= intval((strlen($sIntArabic)-1)/4);$iSection++) {
 		$sSectionArabic = substr($sIntArabic, $iSection * 4 , 4);
 		$sSection = '';	
     		
-  		//  (* ¥H¤Uªº i ±±¨î: ­Ó¤Q¦Ê¤d¦ì¥|­Ó¦ì¼Æ *)
+  		//  (* ï¿½Hï¿½Uï¿½ï¿½ i ï¿½ï¿½ï¿½ï¿½: ï¿½Ó¤Qï¿½Ê¤dï¿½ï¿½|ï¿½Ó¦ï¿½ï¿½ *)
 		for ($i=0;$i< strlen($sSectionArabic);$i++){
-			$iDigit = Ord(substr($sSectionArabic,$i,1)) - 48;
+			$iDigit = ord(substr($sSectionArabic,$i,1)) - 48;
 			
 			if ($iDigit == 0) {
-			//(* 1. Á×§K '¹s' ªº­«ÂÐ¥X²{ *)
-			//(* 2. ­Ó¦ì¼Æªº 0 ¤£¥²Âà¦¨ '¹s' *)
+			//(* 1. ï¿½×§K 'ï¿½s' ï¿½ï¿½ï¿½ï¿½ï¿½Ð¥Xï¿½{ *)
+			//(* 2. ï¿½Ó¦ï¿½Æªï¿½ 0 ï¿½ï¿½ï¿½ï¿½ï¿½à¦¨ 'ï¿½s' *)
         			if (!$bInZero and $i != 0)
 					$sSection = _MD_N2CN_REZO.$sSection;
 				$bInZero = True;
@@ -194,7 +194,7 @@ function Num2CNum($dblArabic,$ChineseNumeric='') {
 					break;
 				}
 
-//  §PÂ_ UTF-8 ? BIG5 ?			
+//  ï¿½Pï¿½_ UTF-8 ? BIG5 ?			
 //				$sSection = substr($ChineseNumeric, 2 * $iDigit, 2).$sSection;
 /*			  if ( true === mb_check_encoding ( $ChineseNumeric, $encoding ) ){
 			  // UTF-8 is 3 byts
@@ -211,10 +211,10 @@ function Num2CNum($dblArabic,$ChineseNumeric='') {
 			}
 		}
 		
-   		//(* ¥[¤W¸Ó¤p¸`ªº¦ì¼Æ *)
+   		//(* ï¿½[ï¿½Wï¿½Ó¤pï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ *)
     		
-		if (strLen($sSection) == 0) {
-			if (strLen($result) > 0 and substr($result, 0, 2) != _MD_N2CN_REZO)
+		if (strlen($sSection) == 0) {
+			if (strlen($result) > 0 and substr($result, 0, 2) != _MD_N2CN_REZO)
 				$result = _MD_N2CN_REZO.$result;
 		}
 			
@@ -236,19 +236,19 @@ function Num2CNum($dblArabic,$ChineseNumeric='') {
 	
 
 	
-   //(* ³B²z¤p¼ÆÂI¥kÃäªº³¡¤À *)
+   //(* ï¿½Bï¿½zï¿½pï¿½ï¿½ï¿½Iï¿½kï¿½äªºï¿½ï¿½ï¿½ï¿½ *)
 	if ($iPosOfDecimalPoint > 0 ) {
 		
 		$result .= _MD_N2CN_DOT;
-		for ($i = $iPosOfDecimalPoint +1;$i <strLen($sArabic);$i++) {
-			$iDigit = Ord(substr($sArabic,$i,1)) - 48;
+		for ($i = $iPosOfDecimalPoint +1;$i <strlen($sArabic);$i++) {
+			$iDigit = ord(substr($sArabic,$i,1)) - 48;
 			$result .= substr($ChineseNumeric, 2 * $iDigit , 2);
 		}
 
 	}
 
-  //(* ¨ä¥L¨Ò¥~ª¬ªpªº³B²z *)
-	if (strLen($result) == 0)
+  //(* ï¿½ï¿½Lï¿½Ò¥~ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½Bï¿½z *)
+	if (strlen($result) == 0)
 		$result = _MD_N2CN_REZO;
 	if (substr($result, 0, 4) == _MD_N2CN_ONETEN)
 		$result = substr($result, 2, 254);
@@ -256,7 +256,7 @@ function Num2CNum($dblArabic,$ChineseNumeric='') {
 	if (substr($result, 0, 2) == _MD_N2CN_REZO)
 		$result = _MD_N2CN_REZO .$result;
 
-  //(* ¬O§_¬°­t¼Æ *)
+  //(* ï¿½Oï¿½_ï¿½ï¿½ï¿½tï¿½ï¿½ *)
 	if ($bMinus)
 		$result = _MD_N2CN_MIU .$result;
 		
@@ -283,25 +283,25 @@ return $main;
 } 
 
 
-/* ¨ä¥L */
+/* ï¿½ï¿½L */
 
-//¶i¦æÅv­­§PÂ_
+//ï¿½iï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Pï¿½_
 function chk_power($gperm_name="",$gperm_itemid=""){
 	global $xoopsUser,$xoopsModule;
 	if(empty($gperm_name) or empty($gperm_itemid)){
 		redirect_header($_SERVER['PHP_SELF'],5,_MD_HB_CANT_GET_POWER);
 	}
-	//¬Ý¨Ï¥ÎªÌ¬OÄÝ©ó¤°»ò¸s²Õ
+	//ï¿½Ý¨Ï¥ÎªÌ¬Oï¿½Ý©ó¤°»ï¿½sï¿½ï¿½
 	if(empty($xoopsUser)){
 		$groups_id_arr=array(3);
 	}else{
   	$groups_id_arr =& $xoopsUser->getGroups();
   }
-  //¸ÑªR¨C­Ó¸s²Õ
+  //ï¿½ÑªRï¿½Cï¿½Ó¸sï¿½ï¿½
   foreach($groups_id_arr as $gperm_groupid){
-		//«ü©w²Ó³¡Åv­­¤p¸s²Õ¦WºÙ
+		//ï¿½ï¿½ï¿½wï¿½Ó³ï¿½ï¿½vï¿½ï¿½ï¿½pï¿½sï¿½Õ¦Wï¿½ï¿½
 		$gperm_modid=$xoopsModule->mid();
-		$gperm_handler =&xoops_gethandler('groupperm');
+		$gperm_handler =&xoops_getHandler('groupperm');
 		$CR=$gperm_handler->checkRight($gperm_name, $gperm_itemid, $gperm_groupid, $gperm_modid);
 		if($CR) {
 			$IhaveRight="1";
@@ -317,16 +317,16 @@ function chk_power($gperm_name="",$gperm_itemid=""){
 
 
 
-// show µæ³æ§÷®Æ
+// show ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function show_dish($g_date){
-//ÅÜ¼Æ
+//ï¿½Ü¼ï¿½
 global $xoopsDB;
 $main="";
 
   $sql="select * from ".$xoopsDB->prefix("tad_lunch_main")." where dates = '{$g_date}'";
   $result=$xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'],3,_MD_SQL_ERROR);
   if($food=$xoopsDB->fetchArray($result)){
-// ¶µ¥Ø 
+// ï¿½ï¿½ï¿½ï¿½ 
    $main.="<tr style='font-size:12px;'>
         <td>"._MD_LUNCH_DISH_DISH."</td><td>"._MD_LUNCH_ITEM_1."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_2."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_3."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_4."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_5."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_6."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_7."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_8."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_9."</td><td>"._MD_LUNCH_NUMBER."</td><td>"._MD_LUNCH_ITEM_10."</td><td>"._MD_LUNCH_NUMBER."</td>
         </tr>";
@@ -362,9 +362,9 @@ $main="";
 } 
 
 
-// show µæ³æ§÷®Æ ¤l¶µ 
+// show ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½lï¿½ï¿½ 
 function show_dish_items($id, $num){
-//ÅÜ¼Æ
+//ï¿½Ü¼ï¿½
 global $xoopsDB;
 
   $sql="select * from ".$xoopsDB->prefix("tad_lunch_dish")." where id = '{$id}'";
@@ -379,7 +379,7 @@ global $xoopsDB;
 
 
 function print_content( $content ="" ){
-	//¥H¦ê¬y¤è¦¡°e¥X  ooo.sxw
+	//ï¿½Hï¿½ï¿½yï¿½è¦¡ï¿½eï¿½X  ooo.sxw
 	if(strpos($_SERVER['HTTP_USER_AGENT'] , 'MSIE') || strpos($_SERVER['HTTP_USER_AGENT'] , 'Opera')) $mimeType="application/x-download";
 	elseif($file_extname=="odt") $mimeType="application/vnd.oasis.opendocument.text";
 	else $mimeType="application/vnd.sun.xml.writer";

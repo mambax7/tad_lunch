@@ -1,7 +1,7 @@
 <?php
 // $Id: sxsooo_class.php,v 1.5 2005/05/19 03:46:56 cvsjrh Exp $
 /*
-²£¥Í zip ÀÉ class
+ï¿½ï¿½ï¿½ï¿½ zip ï¿½ï¿½ class
 */
 class zipfile 
 { 
@@ -128,7 +128,7 @@ function add_file($data, $name) {
 function addFileAndRead ($file) {
 
     if (is_file($file))
-      $this->add_File($this->read_File($file), $file);
+      $this->add_file($this->read_file($file), $file);
 
   }
 
@@ -160,7 +160,7 @@ function read_file($file) {
 
         return $contents;
 }
-//Âà´«¦r¦ê
+//ï¿½à´«ï¿½rï¿½ï¿½
 function change_str($source,$is_reference=1){
         $temp_str = $source;
         if ($is_reference){
@@ -196,7 +196,7 @@ function change_temp($arr,$source,$is_reference=1) {
 	return $temp_str;
 }
 
-//³æ¦sÂà´« µLÃö¥G unicode ¤Î°}¦C
+//ï¿½ï¿½sï¿½à´« ï¿½Lï¿½ï¿½ï¿½G unicode ï¿½Î°}ï¿½C
 function change_sigle_temp($arr,$source) {
 	$temp_str = $source;
 	while(list($id,$val) = each($arr)){
@@ -205,7 +205,7 @@ function change_sigle_temp($arr,$source) {
 	return $temp_str;
 }
 
-//¨S¦³Âà´« UTF-8¡A¼Ò²Õ²£¥Íµ{¦¡·|¥Î¨ì¡C
+//ï¿½Sï¿½ï¿½ï¿½à´« UTF-8ï¿½Aï¿½Ò²Õ²ï¿½ï¿½Íµ{ï¿½ï¿½ï¿½|ï¿½Î¨ï¿½C
 function change_temp2($arr,$source) {
 	$temp_str = $source;
 	while(list($id,$val) = each($arr)){
@@ -215,7 +215,7 @@ function change_temp2($arr,$source) {
 	return $temp_str;
 }
 
- //XML ¹êÅé°Ñ·ÓÂà´«
+ //XML ï¿½ï¿½ï¿½ï¿½Ñ·ï¿½ï¿½à´«
 function xml_reference_change($text){
 	$sw = array("&"=>"&amp;","<"=>"&lt;",">"=>"&gt;","\""=>"&quot;","'"=>"&apos;");
 	$all_word=array_keys($sw);
@@ -228,49 +228,49 @@ function xml_reference_change($text){
 
 
 
-//iconv µLªkÂàªº¦r
+//iconv ï¿½Lï¿½kï¿½àªºï¿½r
 function spec_uni($text=""){
-	$sw["ùÖ"]="&#30849;";
-	$sw["ùÛ"]="&#31911;";
-	$sw["ùØ"]="&#35023;";
-	$sw["ùÙ"]="&#22715;";
-	$sw["ùÚ"]="&#24658;";
-	$sw["ù×"]="&#37561;";
-	$sw["ùÜ"]="&#23290;";
-	$sw["ùÝ"]="&#9556;";
-	$sw["ùÞ"]="&#9574;";
-	$sw["ùß"]="&#9559;";
-	$sw["ùà"]="&#9568;";
-	$sw["ùá"]="&#9580;";
-	$sw["ùâ"]="&#9571;";
-	$sw["ùã"]="&#9562;";
-	$sw["ùä"]="&#9577;";
-	$sw["ùå"]="&#9565;";
-	$sw["ùæ"]="&#9554;";
-	$sw["ùç"]="&#9572;";
-	$sw["ùè"]="&#9557;";
-	$sw["ùé"]="&#9566;";
-	$sw["ùê"]="&#9578;";
-	$sw["ùë"]="&#9569;";
-	$sw["ùì"]="&#9560;";
-	$sw["ùí"]="&#9575;";
-	$sw["ùî"]="&#9563;";
-	$sw["ùï"]="&#9555;";
-	$sw["ùð"]="&#9573;";
-	$sw["ùñ"]="&#9558;";
-	$sw["ùò"]="&#9567;";
-	$sw["ùó"]="&#9579;";
-	$sw["ùô"]="&#9570;";
-	$sw["ùõ"]="&#9561;";
-	$sw["ùö"]="&#9576;";
-	$sw["ù÷"]="&#9564;";
-	$sw["ùø"]="&#9553;";
-	$sw["ùù"]="&#9552;";
-	$sw["ùÝ"]="&#9556;";
-	$sw["ùß"]="&#9559;";
-	$sw["ùã"]="&#9562;";
-	$sw["ùå"]="&#9565;";
-	$sw["¢i"]="&#9608;";
+	$sw["ï¿½ï¿½"]="&#30849;";
+	$sw["ï¿½ï¿½"]="&#31911;";
+	$sw["ï¿½ï¿½"]="&#35023;";
+	$sw["ï¿½ï¿½"]="&#22715;";
+	$sw["ï¿½ï¿½"]="&#24658;";
+	$sw["ï¿½ï¿½"]="&#37561;";
+	$sw["ï¿½ï¿½"]="&#23290;";
+	$sw["ï¿½ï¿½"]="&#9556;";
+	$sw["ï¿½ï¿½"]="&#9574;";
+	$sw["ï¿½ï¿½"]="&#9559;";
+	$sw["ï¿½ï¿½"]="&#9568;";
+	$sw["ï¿½ï¿½"]="&#9580;";
+	$sw["ï¿½ï¿½"]="&#9571;";
+	$sw["ï¿½ï¿½"]="&#9562;";
+	$sw["ï¿½ï¿½"]="&#9577;";
+	$sw["ï¿½ï¿½"]="&#9565;";
+	$sw["ï¿½ï¿½"]="&#9554;";
+	$sw["ï¿½ï¿½"]="&#9572;";
+	$sw["ï¿½ï¿½"]="&#9557;";
+	$sw["ï¿½ï¿½"]="&#9566;";
+	$sw["ï¿½ï¿½"]="&#9578;";
+	$sw["ï¿½ï¿½"]="&#9569;";
+	$sw["ï¿½ï¿½"]="&#9560;";
+	$sw["ï¿½ï¿½"]="&#9575;";
+	$sw["ï¿½ï¿½"]="&#9563;";
+	$sw["ï¿½ï¿½"]="&#9555;";
+	$sw["ï¿½ï¿½"]="&#9573;";
+	$sw["ï¿½ï¿½"]="&#9558;";
+	$sw["ï¿½ï¿½"]="&#9567;";
+	$sw["ï¿½ï¿½"]="&#9579;";
+	$sw["ï¿½ï¿½"]="&#9570;";
+	$sw["ï¿½ï¿½"]="&#9561;";
+	$sw["ï¿½ï¿½"]="&#9576;";
+	$sw["ï¿½ï¿½"]="&#9564;";
+	$sw["ï¿½ï¿½"]="&#9553;";
+	$sw["ï¿½ï¿½"]="&#9552;";
+	$sw["ï¿½ï¿½"]="&#9556;";
+	$sw["ï¿½ï¿½"]="&#9559;";
+	$sw["ï¿½ï¿½"]="&#9562;";
+	$sw["ï¿½ï¿½"]="&#9565;";
+	$sw["ï¿½i"]="&#9608;";
 	$all_word=array_keys($sw);
 	foreach($all_word as $spec_uni){
 		$text=str_replace($spec_uni,$sw[$spec_uni],$text);
@@ -278,7 +278,7 @@ function spec_uni($text=""){
 	return $text;
 }
 
-	//§PÂ_¦r¦ê¬O§_¬°utf8
+	//ï¿½Pï¿½_ï¿½rï¿½ï¿½Oï¿½_ï¿½ï¿½utf8
 	function isutf8($str) {
 		$i=0;
 		$len = strlen($str);
@@ -300,7 +300,7 @@ function spec_uni($text=""){
 		return 1;
   }
 
-	//³v¦rÂà´«utf8¦r¦ê¬°big5
+	//ï¿½vï¿½rï¿½à´«utf8ï¿½rï¿½ê¬°big5
 	function utf8_2_big5($utf8_str) {
 		$i=0;
 		$len = strlen($utf8_str);
@@ -312,16 +312,16 @@ function spec_uni($text=""){
 				$big5_str.=substr($utf8_str,$i,1);
 			} else if($sbit > 191 && $sbit < 224) {
 				$new_word=iconv("UTF-8","Big5",substr($utf8_str,$i,2));
-				$big5_str.=($new_word=="")?"¡½":$new_word;
+				$big5_str.=($new_word=="")?"ï¿½ï¿½":$new_word;
 				//echo $big5_str."<br>";
 				$i++;
 			} else if($sbit > 223 && $sbit < 240) {
 				$new_word=iconv("UTF-8","Big5",substr($utf8_str,$i,3));
-				$big5_str.=($new_word=="")?"¡½":$new_word;
+				$big5_str.=($new_word=="")?"ï¿½ï¿½":$new_word;
 				$i+=2;
 			} else if($sbit > 239 && $sbit < 248) {
 				$new_word=iconv("UTF-8","Big5",substr($utf8_str,$i,4));
-				$big5_str.=($new_word=="")?"¡½":$new_word;
+				$big5_str.=($new_word=="")?"ï¿½ï¿½":$new_word;
 				$i+=3;
 			}
 		}
